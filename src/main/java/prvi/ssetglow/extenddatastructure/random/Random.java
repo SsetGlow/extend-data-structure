@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @program: extend-data-structure
  * @packageName: prvi.ssetglow.extenddatastructure.random
  * @className: Random
- * @description:
+ * @description: class for all random algorithm
  * @author: SsetGlow
  * @date: 2021-11-15 09:21
  **/
@@ -33,11 +33,13 @@ public class Random {
                 return;
             }
             currentProbability.updateAndGet(n -> n.add(randomBean.getProbability()));
-            if (probability.compareTo(currentProbability.get()) < 0 && targetBeanReference.get() == null) {
+            if (probability.compareTo(currentProbability.get()) <= 0 && targetBeanReference.get() == null) {
                 targetBeanReference.set(randomBean);
             }
         });
         //when randomBeanList is not empty, ensure it will get a randomBean
         return targetBeanReference.get() != null ? Optional.of(targetBeanReference.get()) : Optional.of(randomBeanList.get(0));
     }
+
+
 }
