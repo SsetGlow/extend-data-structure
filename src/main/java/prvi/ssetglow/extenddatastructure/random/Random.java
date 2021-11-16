@@ -40,6 +40,4 @@ public class Random {
         //when randomBeanList is not empty, ensure it will get a randomBean
         return targetBeanReference.get() != null ? Optional.of(targetBeanReference.get()) : Optional.of(randomBeanList.get(0));
     }
-
-
 }
