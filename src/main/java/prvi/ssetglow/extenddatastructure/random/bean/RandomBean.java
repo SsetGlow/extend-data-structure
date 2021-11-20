@@ -13,6 +13,13 @@ import java.math.BigDecimal;
 public class RandomBean {
     private BigDecimal probability;
 
+    public RandomBean() {
+    }
+
+    public RandomBean(BigDecimal probability) {
+        this.probability = probability;
+    }
+
     public BigDecimal getProbability() {
         return probability;
     }
