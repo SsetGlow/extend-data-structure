@@ -1,6 +1,7 @@
 package prvi.ssetglow.extenddatastructure.random;
 
 import org.springframework.util.CollectionUtils;
+import prvi.ssetglow.extenddatastructure.Constants;
 import prvi.ssetglow.extenddatastructure.random.bean.RandomBean;
 import prvi.ssetglow.extenddatastructure.random.bean.RandomNode;
 
@@ -19,13 +20,11 @@ import java.util.concurrent.atomic.AtomicReference;
  **/
 public class Random {
 
-    private static final Integer BIG_DECIMAL_SCALE = 3;
-
     public static <T extends RandomBean> Optional<T> getTargetBean(List<T> randomBeanList) {
         if (CollectionUtils.isEmpty(randomBeanList)) {
             return Optional.empty();
         }
-        BigDecimal probability = BigDecimal.valueOf(Math.random()).setScale(BIG_DECIMAL_SCALE, RoundingMode.HALF_DOWN);
+        BigDecimal probability = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.getNumberValue().intValue(), RoundingMode.HALF_DOWN);
         AtomicReference<T> targetBeanReference = new AtomicReference<>();
         AtomicReference<BigDecimal> currentProbability = new AtomicReference<>(BigDecimal.ZERO);
         randomBeanList.forEach(randomBean -> {
@@ -50,7 +49,7 @@ public class Random {
                     : new RandomNode(randomTree.get(index - 1).getEnd(), randomTree.get(index - 1).getEnd().add(randomBeanList.get(index).getProbability()))
             );
         }
-        BigDecimal target = BigDecimal.valueOf(Math.random()).setScale(BIG_DECIMAL_SCALE, RoundingMode.HALF_DOWN);
+        BigDecimal target = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.getNumberValue().intValue(), RoundingMode.HALF_DOWN);
         int targetIndex = 0;
         for (int index = 0; index < randomTree.size(); ++index) {
             RandomNode node = randomTree.get(index);
@@ -60,15 +59,5 @@ public class Random {
             }
         }
         return Optional.of(randomBeanList.get(targetIndex));
-    }
-
-    public static void main(String[] args) {
-        List<RandomBean> randomBeanList = new ArrayList<>(1 << 3);
-        randomBeanList.add(new RandomBean(new BigDecimal("0.1")));
-        randomBeanList.add(new RandomBean(new BigDecimal("0.2")));
-        randomBeanList.add(new RandomBean(new BigDecimal("0.3")));
-        randomBeanList.add(new RandomBean(new BigDecimal("0.4")));
-        RandomBean randomBean = bTreeRandom(randomBeanList).get();
-        System.out.println(randomBean.getProbability());
     }
 }
