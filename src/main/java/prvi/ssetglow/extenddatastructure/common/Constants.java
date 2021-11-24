@@ -1,4 +1,4 @@
-package prvi.ssetglow.extenddatastructure;
+package prvi.ssetglow.extenddatastructure.common;
 
 /**
  * @program: extend-data-structure

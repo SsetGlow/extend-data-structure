@@ -1,7 +1,7 @@
 package prvi.ssetglow.extenddatastructure.random;
 
 import org.springframework.util.CollectionUtils;
-import prvi.ssetglow.extenddatastructure.Constants;
+import prvi.ssetglow.extenddatastructure.common.Constants;
 import prvi.ssetglow.extenddatastructure.random.bean.RandomBean;
 import prvi.ssetglow.extenddatastructure.random.bean.RandomNode;
 
