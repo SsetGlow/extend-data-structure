@@ -13,6 +13,7 @@ import prvi.ssetglow.extenddatastructure.bitmask.BitMask;
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(BitMask.checkDuplicateWord("", ""));
+        String[] words = {"aaa", "ffcff", "ccc"};
+        System.out.println(BitMask.hasDuplicateWord(words));
     }
 }
