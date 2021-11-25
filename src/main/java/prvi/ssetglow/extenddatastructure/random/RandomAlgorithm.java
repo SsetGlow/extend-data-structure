@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author: SsetGlow
  * @date: 2021-11-15 09:21
  **/
-public class Random {
+public class RandomAlgorithm {
 
     public static <T extends RandomBean> Optional<T> getTargetBean(List<T> randomBeanList) {
         if (CollectionUtils.isEmpty(randomBeanList)) {
