@@ -1,6 +1,6 @@
 package prvi.ssetglow.extenddatastructure;
 
-import prvi.ssetglow.extenddatastructure.bitmask.BitMask;
+import prvi.ssetglow.extenddatastructure.string.StringAlgorithm;
 
 /**
  * @program: extend-data-structure
@@ -13,7 +13,7 @@ import prvi.ssetglow.extenddatastructure.bitmask.BitMask;
 public class Test {
 
     public static void main(String[] args) {
-        String[] words = {"aaa", "ffcff", "ccc"};
-        System.out.println(BitMask.hasDuplicateWord(words));
+        String[] words = {"b1312c12w", "cw", "ccc"};
+        System.out.println(StringAlgorithm.violentMatch(words[0], words[1]));
     }
 }
