@@ -13,7 +13,7 @@ import prvi.ssetglow.extenddatastructure.string.StringAlgorithm;
 public class Test {
 
     public static void main(String[] args) {
-        String[] words = {"b1312c12w", "cw", "ccc"};
-        System.out.println(StringAlgorithm.violentMatch(words[0], words[1]));
+        String[] words = {"b1312cw", "cw", "ccc"};
+        System.out.println(StringAlgorithm.kmpMatch(words[0], words[1]));
     }
 }
