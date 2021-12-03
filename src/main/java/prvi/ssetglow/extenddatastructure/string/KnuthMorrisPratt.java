@@ -8,9 +8,9 @@ package prvi.ssetglow.extenddatastructure.string;
  * @author: SsetGlow
  * @date: 2021-11-23 19:35
  **/
-public class Kmp {
+public class KnuthMorrisPratt {
 
-    public static int kmpMatch(String sourceString, String pattern) {
+    public static int knuthMorrisPrattMatch(String sourceString, String pattern) {
         int sourceLen = sourceString.length(), patternLen = pattern.length();
         int[] next = getNext(pattern);
         int i = 0, j = 0;
