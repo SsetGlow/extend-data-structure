@@ -1,5 +1,8 @@
 package prvi.ssetglow.extenddatastructure.string;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 /**
  * @program: extend-data-structure
  * @packageName: prvi.ssetglow.extenddatastructure.string
@@ -10,7 +13,8 @@ package prvi.ssetglow.extenddatastructure.string;
  **/
 public class KnuthMorrisPratt {
 
-    public static int knuthMorrisPrattMatch(String sourceString, String pattern) {
+    @Contract(pure = true)
+    public static int knuthMorrisPrattMatch(@NotNull String sourceString, @NotNull String pattern) {
         int sourceLen = sourceString.length(), patternLen = pattern.length();
         int[] next = getNext(pattern);
         int i = 0, j = 0;
