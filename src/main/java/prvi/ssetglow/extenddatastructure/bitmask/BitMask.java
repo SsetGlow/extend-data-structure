@@ -1,5 +1,8 @@
 package prvi.ssetglow.extenddatastructure.bitmask;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 /**
  * @program: extend-data-structure
  * @packageName: prvi.ssetglow.extenddatastructure.bitmask
@@ -10,7 +13,8 @@ package prvi.ssetglow.extenddatastructure.bitmask;
  **/
 public class BitMask {
 
-    public static Boolean hasDuplicateWord(String s1, String s2) {
+    @Contract(pure = true)
+    public static Boolean hasDuplicateWord(@NotNull String s1, @NotNull String s2) {
         int[] masks = new int[2];
         for (int i = 0; i < s1.length(); ++i) {
             masks[0] |= 1 << (s1.charAt(i) - 'a');
@@ -21,7 +25,8 @@ public class BitMask {
         return (masks[0] & masks[1]) != 0;
     }
 
-    public static Boolean hasDuplicateWord(String[] words) {
+    @Contract(pure = true)
+    public static Boolean hasDuplicateWord(@NotNull String[] words) {
         int[] masks = new int[words.length];
         for (int i = 0; i < words.length; ++i) {
             for (int j = 0; j < words[i].length(); ++j) {

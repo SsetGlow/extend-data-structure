@@ -1,5 +1,7 @@
 package prvi.ssetglow.extenddatastructure.random.bean;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 
 /**
@@ -11,7 +13,7 @@ import java.math.BigDecimal;
  * @date: 2021-11-15 09:21
  **/
 public class RandomBean {
-    private BigDecimal probability;
+    private @NotNull BigDecimal probability;
 
     public RandomBean() {
     }
