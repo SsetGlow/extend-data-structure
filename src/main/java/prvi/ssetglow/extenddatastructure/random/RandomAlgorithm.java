@@ -1,5 +1,7 @@
 package prvi.ssetglow.extenddatastructure.random;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.util.CollectionUtils;
 import prvi.ssetglow.extenddatastructure.common.Constants;
 import prvi.ssetglow.extenddatastructure.random.bean.RandomBean;
@@ -20,7 +22,8 @@ import java.util.concurrent.atomic.AtomicReference;
  **/
 public class RandomAlgorithm {
 
-    public static <T extends RandomBean> Optional<T> getTargetBean(List<T> randomBeanList) {
+    @Contract(pure = false)
+    public static <T extends RandomBean> Optional<T> getTargetBean(@NotNull List<T> randomBeanList) {
         if (CollectionUtils.isEmpty(randomBeanList)) {
             return Optional.empty();
         }
@@ -44,10 +47,7 @@ public class RandomAlgorithm {
         Map<Integer, RandomNode> randomTree = new HashMap<>(1 << 3);
         //build tree
         for (int index = 0; index < randomBeanList.size(); ++index) {
-            randomTree.put(index, index == 0 ?
-                    new RandomNode(BigDecimal.ZERO, randomBeanList.get(index).getProbability())
-                    : new RandomNode(randomTree.get(index - 1).getEnd(), randomTree.get(index - 1).getEnd().add(randomBeanList.get(index).getProbability()))
-            );
+            randomTree.put(index, index == 0 ? new RandomNode(BigDecimal.ZERO, randomBeanList.get(index).getProbability()) : new RandomNode(randomTree.get(index - 1).getEnd(), randomTree.get(index - 1).getEnd().add(randomBeanList.get(index).getProbability())));
         }
         BigDecimal target = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.getNumberValue().intValue(), RoundingMode.HALF_DOWN);
         int targetIndex = 0;

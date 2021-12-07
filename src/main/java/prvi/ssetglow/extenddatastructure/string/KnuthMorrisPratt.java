@@ -32,7 +32,8 @@ public class KnuthMorrisPratt {
         return -1;
     }
 
-    public static int[] getNext(String string) {
+    @Contract(pure = true)
+    public static int[] getNext(@NotNull String string) {
         int len = string.length(), i = 0, j = -1;
         int[] next = new int[len + 1];
         next[0] = -1;
