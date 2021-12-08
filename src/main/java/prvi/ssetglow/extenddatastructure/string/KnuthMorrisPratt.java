@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * @program: extend-data-structure
  * @packageName: prvi.ssetglow.extenddatastructure.string
- * @className: Kmp
+ * @className: KnuthMorrisPratt
  * @description:
  * @author: SsetGlow
  * @date: 2021-11-23 19:35
