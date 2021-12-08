@@ -9,7 +9,7 @@ import java.util.Arrays;
 /**
  * @program: extend-data-structure
  * @packageName: prvi.ssetglow.extenddatastructure.string
- * @className: Bm
+ * @className: BoyerMoore
  * @description:
  * @author: SsetGlow
  * @date: 2021-12-02 18:15
