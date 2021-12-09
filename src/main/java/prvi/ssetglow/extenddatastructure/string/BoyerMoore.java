@@ -1,5 +1,6 @@
 package prvi.ssetglow.extenddatastructure.string;
 
+import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.util.StringUtils;
@@ -16,8 +17,9 @@ import java.util.Arrays;
  **/
 public class BoyerMoore {
 
+    @Untainted
     @Contract(pure = true)
-    public static int boyerMooreMatch(@NotNull String source, @NotNull String pattern) {
+    public static int boyerMooreMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
         if (!StringUtils.hasText(source) || !StringUtils.hasText(pattern)) {
             return -1;
         }
@@ -36,8 +38,9 @@ public class BoyerMoore {
         return -1;
     }
 
+    @Untainted
     @Contract(pure = true)
-    private static int[] badCharRule(@NotNull String string) {
+    private static int[] badCharRule(@NotNull @Untainted String string) {
         int[] badChar = new int[256];
         Arrays.fill(badChar, -1);
         for (int i = 0; i < string.length(); i++) {

@@ -1,5 +1,6 @@
 package prvi.ssetglow.extenddatastructure.string;
 
+import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,8 +14,9 @@ import org.jetbrains.annotations.NotNull;
  **/
 public class Common {
 
+    @Untainted
     @Contract(pure = true)
-    public static int violentMatch(@NotNull String sourceString, @NotNull String pattern) {
+    public static int violentMatch(@NotNull @Untainted String sourceString, @NotNull @Untainted String pattern) {
         int sourceLen = sourceString.length(), patternLen = pattern.length();
         int i = 0, j = 0;
         while (i < sourceLen && j < patternLen) {

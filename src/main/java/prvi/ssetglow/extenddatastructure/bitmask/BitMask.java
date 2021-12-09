@@ -1,5 +1,6 @@
 package prvi.ssetglow.extenddatastructure.bitmask;
 
+import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,8 +14,9 @@ import org.jetbrains.annotations.NotNull;
  **/
 public class BitMask {
 
+    @Untainted
     @Contract(pure = true)
-    public static Boolean hasDuplicateWord(@NotNull String s1, @NotNull String s2) {
+    public static Boolean hasDuplicateWord(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
         int[] masks = new int[2];
         for (int i = 0; i < s1.length(); ++i) {
             masks[0] |= 1 << (s1.charAt(i) - 'a');
@@ -25,8 +27,9 @@ public class BitMask {
         return (masks[0] & masks[1]) != 0;
     }
 
+    @Untainted
     @Contract(pure = true)
-    public static Boolean hasDuplicateWord(@NotNull String[] words) {
+    public static Boolean hasDuplicateWord(@NotNull @Untainted String[] words) {
         int[] masks = new int[words.length];
         for (int i = 0; i < words.length; ++i) {
             for (int j = 0; j < words[i].length(); ++j) {

@@ -16,24 +16,24 @@ public class RandomNode {
     private @NotNull BigDecimal begin;
     private @NotNull BigDecimal end;
 
-    public RandomNode(BigDecimal begin, BigDecimal end) {
+    public RandomNode(@NotNull BigDecimal begin, @NotNull BigDecimal end) {
         this.begin = begin;
         this.end = end;
     }
 
-    public BigDecimal getBegin() {
+    public @NotNull BigDecimal getBegin() {
         return begin;
     }
 
-    public void setBegin(BigDecimal begin) {
+    public void setBegin(@NotNull BigDecimal begin) {
         this.begin = begin;
     }
 
-    public BigDecimal getEnd() {
+    public @NotNull BigDecimal getEnd() {
         return end;
     }
 
-    public void setEnd(BigDecimal end) {
+    public void setEnd(@NotNull BigDecimal end) {
         this.end = end;
     }
 }

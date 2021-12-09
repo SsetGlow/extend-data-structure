@@ -1,5 +1,6 @@
 package prvi.ssetglow.extenddatastructure.string;
 
+import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,8 +14,9 @@ import org.jetbrains.annotations.NotNull;
  **/
 public class KnuthMorrisPratt {
 
+    @Untainted
     @Contract(pure = true)
-    public static int knuthMorrisPrattMatch(@NotNull String sourceString, @NotNull String pattern) {
+    public static int knuthMorrisPrattMatch(@NotNull @Untainted String sourceString, @NotNull @Untainted String pattern) {
         int sourceLen = sourceString.length(), patternLen = pattern.length();
         int[] next = getNext(pattern);
         int i = 0, j = 0;
@@ -32,8 +34,9 @@ public class KnuthMorrisPratt {
         return -1;
     }
 
+    @Untainted
     @Contract(pure = true)
-    public static int[] getNext(@NotNull String string) {
+    public static int[] getNext(@NotNull @Untainted String string) {
         int len = string.length(), i = 0, j = -1;
         int[] next = new int[len + 1];
         next[0] = -1;

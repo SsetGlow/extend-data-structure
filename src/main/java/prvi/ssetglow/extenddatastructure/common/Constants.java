@@ -1,5 +1,7 @@
 package prvi.ssetglow.extenddatastructure.common;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * @program: extend-data-structure
  * @packageName: prvi.ssetglow.extenddatastructure
@@ -10,17 +12,15 @@ package prvi.ssetglow.extenddatastructure.common;
  **/
 public enum Constants {
     //values
-    BIG_DECIMAL_SCALE(1, "3", '3', 3L, 3D),
-    SMALL_A(2, "a", 'a', 65L, 65D),
-    BIG_A(3, "A", 'A', 97L, 97D);
+    BIG_DECIMAL_SCALE(1, "3", '3', 3L, 3D), SMALL_A(2, "a", 'a', 65L, 65D), BIG_A(3, "A", 'A', 97L, 97D);
 
-    private Integer id;
-    private String value;
-    private Character charValue;
-    private Long numberValue;
-    private Double doubleValue;
+    private @NotNull Integer id;
+    private @NotNull String value;
+    private @NotNull Character charValue;
+    private @NotNull Long numberValue;
+    private @NotNull Double doubleValue;
 
-    Constants(Integer id, String value, Character charValue, Long numberValue, Double doubleValue) {
+    Constants(@NotNull Integer id, @NotNull String value, @NotNull Character charValue, @NotNull Long numberValue, @NotNull Double doubleValue) {
         this.id = id;
         this.value = value;
         this.charValue = charValue;
@@ -28,43 +28,43 @@ public enum Constants {
         this.doubleValue = doubleValue;
     }
 
-    public Integer getId() {
+    public @NotNull Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(@NotNull Integer id) {
         this.id = id;
     }
 
-    public String getValue() {
+    public @NotNull String getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(@NotNull String value) {
         this.value = value;
     }
 
-    public Character getCharValue() {
+    public @NotNull Character getCharValue() {
         return charValue;
     }
 
-    public void setCharValue(Character charValue) {
+    public void setCharValue(@NotNull Character charValue) {
         this.charValue = charValue;
     }
 
-    public Long getNumberValue() {
+    public @NotNull Long getNumberValue() {
         return numberValue;
     }
 
-    public void setNumberValue(Long numberValue) {
+    public void setNumberValue(@NotNull Long numberValue) {
         this.numberValue = numberValue;
     }
 
-    public Double getDoubleValue() {
+    public @NotNull Double getDoubleValue() {
         return doubleValue;
     }
 
-    public void setDoubleValue(Double doubleValue) {
+    public void setDoubleValue(@NotNull Double doubleValue) {
         this.doubleValue = doubleValue;
     }
 }

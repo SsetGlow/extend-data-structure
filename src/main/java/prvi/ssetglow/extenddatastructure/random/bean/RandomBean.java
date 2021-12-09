@@ -18,15 +18,15 @@ public class RandomBean {
     public RandomBean() {
     }
 
-    public RandomBean(BigDecimal probability) {
+    public RandomBean(@NotNull BigDecimal probability) {
         this.probability = probability;
     }
 
-    public BigDecimal getProbability() {
+    public @NotNull BigDecimal getProbability() {
         return probability;
     }
 
-    public void setProbability(BigDecimal probability) {
+    public void setProbability(@NotNull BigDecimal probability) {
         this.probability = probability;
     }
 }
