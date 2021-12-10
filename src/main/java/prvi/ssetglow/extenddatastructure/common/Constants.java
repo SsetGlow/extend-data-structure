@@ -12,7 +12,10 @@ import org.jetbrains.annotations.NotNull;
  **/
 public enum Constants {
     //values
-    BIG_DECIMAL_SCALE(1, "3", '3', 3L, 3D), SMALL_A(2, "a", 'a', 65L, 65D), BIG_A(3, "A", 'A', 97L, 97D);
+    BIG_DECIMAL_SCALE(1, "3", '3', 3L, 3D),
+    ZERO(2, "0", '0', 0L, 0D),
+    SMALL_A(3, "a", 'a', 65L, 65D),
+    BIG_A(4, "A", 'A', 97L, 97D);
 
     private @NotNull Integer id;
     private @NotNull String value;
