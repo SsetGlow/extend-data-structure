@@ -14,8 +14,10 @@ public enum Constants {
     //values
     BIG_DECIMAL_SCALE(1, "3", '3', 3L, 3D),
     ZERO(2, "0", '0', 0L, 0D),
-    SMALL_A(3, "a", 'a', 65L, 65D),
-    BIG_A(4, "A", 'A', 97L, 97D);
+    ONE(3, "1", '1', 1L, 1D),
+    NEGATIVE_ONE(4, "-1", '-', -1L, -1D),
+    SMALL_A(5, "a", 'a', 65L, 65D),
+    BIG_A(6, "A", 'A', 97L, 97D);
 
     private @NotNull Integer id;
     private @NotNull String value;
