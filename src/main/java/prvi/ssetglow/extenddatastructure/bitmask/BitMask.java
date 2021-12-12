@@ -47,10 +47,9 @@ public class BitMask {
         return Boolean.FALSE;
     }
 
-    @NotNull
     @Untainted
     @Contract(pure = true)
-    public static int poisonWater(@NotNull int glassCount) {
+    public static int poisonWater(int glassCount) {
         if (glassCount == 0) {
             return 0;
         }
