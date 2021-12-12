@@ -3,6 +3,9 @@ package prvi.ssetglow.extenddatastructure.bitmask;
 import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import prvi.ssetglow.extenddatastructure.math.QuickPow;
+
+import java.math.BigInteger;
 
 /**
  * @program: extend-data-structure
@@ -42,6 +45,20 @@ public class BitMask {
             }
         }
         return Boolean.FALSE;
+    }
+
+    @NotNull
+    @Untainted
+    @Contract(pure = true)
+    public static int poisonWater(@NotNull int glassCount) {
+        if (glassCount == 0) {
+            return 0;
+        }
+        int n = 1;
+        while (QuickPow.quickPow(2, n).compareTo(BigInteger.valueOf(glassCount)) < 0) {
+            ++n;
+        }
+        return n + 1;
     }
 
     public static Integer getFirstDuplicateWordIndex(String s1, String s2) {

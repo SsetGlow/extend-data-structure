@@ -1,5 +1,7 @@
 package prvi.ssetglow.extenddatastructure;
 
+import prvi.ssetglow.extenddatastructure.bitmask.BitMask;
+
 /**
  * @program: extend-data-structure
  * @packageName: prvi.ssetglow.extenddatastructure
@@ -11,5 +13,6 @@ package prvi.ssetglow.extenddatastructure;
 public class Test {
 
     public static void main(String[] args) {
+        System.out.println(BitMask.poisonWater(9));
     }
 }
