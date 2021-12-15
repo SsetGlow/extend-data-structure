@@ -12,8 +12,8 @@ import java.math.BigInteger;
  **/
 public class QuickPow {
 
-    public static BigInteger quickPow(int num, int power) {
-        int ans = 1, base = num;
+    public static BigInteger quickPow(long num, long power) {
+        long ans = 1, base = num;
         while (power != 0) {
             if (((power & 1)) != 0) {
                 ans = ans * base;

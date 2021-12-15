@@ -3,6 +3,7 @@ package prvi.ssetglow.extenddatastructure.bitmask;
 import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import prvi.ssetglow.extenddatastructure.common.Constants;
 import prvi.ssetglow.extenddatastructure.math.QuickPow;
 
 import java.math.BigInteger;
@@ -54,7 +55,7 @@ public class BitMask {
             return 0;
         }
         int n = 1;
-        while (QuickPow.quickPow(2, n).compareTo(BigInteger.valueOf(glassCount)) < 0) {
+        while (QuickPow.quickPow(Constants.TWO.getNumberValue(), n).compareTo(BigInteger.valueOf(glassCount)) < 0) {
             ++n;
         }
         return ++n;
