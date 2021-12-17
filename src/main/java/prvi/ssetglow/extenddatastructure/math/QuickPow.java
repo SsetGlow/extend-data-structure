@@ -32,7 +32,13 @@ public class QuickPow {
 
     @Untainted
     @Contract(pure = true)
-    public static BigDecimal quickPow(double num, double power) {
-        return BigDecimal.valueOf(Math.pow(num, power));
+    public static BigDecimal quickPow(BigDecimal num, BigDecimal power) {
+        return BigDecimal.valueOf(Math.pow(num.doubleValue(), power.doubleValue()));
+    }
+
+    @Untainted
+    @Contract(pure = true)
+    public static double quickPow(double num, double power) {
+        return Math.pow(num, power);
     }
 }
