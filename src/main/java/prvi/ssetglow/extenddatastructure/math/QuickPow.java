@@ -32,6 +32,20 @@ public class QuickPow {
 
     @Untainted
     @Contract(pure = true)
+    public static int quickPow(int num, int power) {
+        int ans = 1, base = num;
+        while (power != 0) {
+            if (((power & 1)) != 0) {
+                ans = ans * base;
+            }
+            base = base * base;
+            power >>= 1;
+        }
+        return ans;
+    }
+
+    @Untainted
+    @Contract(pure = true)
     public static BigDecimal quickPow(BigDecimal num, BigDecimal power) {
         return BigDecimal.valueOf(Math.pow(num.doubleValue(), power.doubleValue()));
     }
@@ -41,4 +55,5 @@ public class QuickPow {
     public static double quickPow(double num, double power) {
         return Math.pow(num, power);
     }
+
 }
