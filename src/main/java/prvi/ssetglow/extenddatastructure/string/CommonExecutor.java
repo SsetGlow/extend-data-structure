@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
  * @author: SsetGlow
  * @date: 2021-11-26 08:59
  **/
-public class Common {
+public class CommonExecutor {
 
     @Untainted
     @Contract(pure = true)
