@@ -1,5 +1,7 @@
 package prvi.ssetglow.extenddatastructure.datastructure.tree.node;
 
+import java.util.Objects;
+
 /**
  * @program: extend-data-structure
  * @packageName: prvi.ssetglow.extenddatastructure.datastructure.tree.node
@@ -8,10 +10,9 @@ package prvi.ssetglow.extenddatastructure.datastructure.tree.node;
  * @author: SsetGlow
  * @date: 2022-01-06 14:25
  **/
-public class TreeNode<T> {
+public class TreeNode<T extends Comparable> {
     protected T data;
-    protected TreeNode<T> parentNode;
-    protected TreeNode<T> childNode;
+    private TreeNode<T> parentNode;
 
     public T getData() {
         return data;
@@ -29,11 +30,16 @@ public class TreeNode<T> {
         this.parentNode = parentNode;
     }
 
-    public TreeNode<T> getChildNode() {
-        return childNode;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TreeNode<?> treeNode = (TreeNode<?>) o;
+        return Objects.equals(data, treeNode.data) && Objects.equals(parentNode, treeNode.parentNode);
     }
 
-    public void setChildNode(TreeNode<T> childNode) {
-        this.childNode = childNode;
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, parentNode);
     }
 }
