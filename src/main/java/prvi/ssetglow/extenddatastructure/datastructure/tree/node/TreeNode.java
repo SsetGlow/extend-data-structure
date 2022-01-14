@@ -14,6 +14,9 @@ import java.util.Objects;
  * @date: 2022-01-06 14:25
  **/
 public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>> {
+
+    private static final long serialVersionUID = 1L;
+
     protected final @NotNull T data;
     private TreeNode<T> parentNode;
     private final @NotNull ArrayList<TreeNode<T>> childNodes;
