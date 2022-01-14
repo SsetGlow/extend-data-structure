@@ -1,8 +1,9 @@
 package prvi.ssetglow.extenddatastructure.datastructure.tree;
 
+import org.jetbrains.annotations.NotNull;
 import prvi.ssetglow.extenddatastructure.datastructure.tree.node.TreeNode;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * @program: extend-data-structure
@@ -12,19 +13,19 @@ import java.util.LinkedList;
  * @author: SsetGlow
  * @date: 2022-01-06 14:21
  **/
-public class Tree<T extends Comparable> {
-    protected Integer size;
+public class Tree<T extends Comparable<T>> {
+    protected @NotNull Integer size;
     private TreeNode<T> root;
-    private final LinkedList<TreeNode<T>> nodes;
+    private final ArrayList<TreeNode<T>> nodes;
 
     public Tree() {
-        this.nodes = new LinkedList<>();
+        this.nodes = new ArrayList<>();
         this.size = 0b0;
     }
 
     public Tree(TreeNode<T> root) {
         this.root = root;
-        this.nodes = new LinkedList<>();
+        this.nodes = new ArrayList<>(0b100);
         this.size = 0b1;
         this.nodes.add(root);
     }
@@ -33,9 +34,13 @@ public class Tree<T extends Comparable> {
         return null == this.root;
     }
 
-    public int getHeight(TreeNode<T> treeNode) {
+    public int height(TreeNode<T> treeNode) {
         int height = 0;
         return height;
+    }
+
+    public int size() {
+        return this.size;
     }
 
     public boolean insert(TreeNode<T> treeNode) {
