@@ -17,23 +17,23 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
 
     private static final long serialVersionUID = 0b1L;
 
-    protected final @NotNull T data;
+    protected final @NotNull T element;
     private TreeNode<T> parentNode;
     private final @NotNull ArrayList<TreeNode<T>> childNodes;
 
-    public TreeNode(@NotNull T data) {
-        this.data = data;
+    public TreeNode(@NotNull T element) {
+        this.element = element;
         this.childNodes = new ArrayList<>(0b10);
     }
 
     public TreeNode(@NotNull T data, TreeNode<T> parentNode) {
-        this.data = data;
+        this.element = data;
         this.parentNode = parentNode;
         this.childNodes = new ArrayList<>(0b10);
     }
 
-    public @NotNull T getData() {
-        return this.data;
+    public @NotNull T getElement() {
+        return this.element;
     }
 
     public TreeNode<T> getParentNode() {
@@ -48,14 +48,14 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
         return this.childNodes;
     }
 
-    public void addChildNode(@NotNull TreeNode<T> childNode) {
+    public boolean addChildNode(@NotNull TreeNode<T> childNode) {
         for (int index = 0; index < this.childNodes.size(); ++index) {
             if (this.childNodes.get(index).compareTo(childNode) > 0) {
                 this.childNodes.add(index, childNode);
-                return;
+                return true;
             }
         }
-        this.childNodes.add(childNode);
+        return false;
     }
 
     @Override
@@ -67,16 +67,16 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
             return false;
         }
         TreeNode<?> treeNode = (TreeNode<?>) o;
-        return Objects.equals(data, treeNode.data);
+        return Objects.equals(element, treeNode.element);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data, parentNode);
+        return Objects.hash(element, parentNode);
     }
 
     @Override
     public int compareTo(@NotNull TreeNode<T> o) {
-        return this.data.compareTo(o.getData());
+        return this.element.compareTo(o.getElement());
     }
 }
