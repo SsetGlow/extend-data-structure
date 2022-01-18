@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.datastructure.tree.node
+ * @packageName: priv.ssetglow.extenddatastructure.datastructure.tree.node
  * @className: TreeNode
  * @description:
  * @author: SsetGlow
