@@ -1,4 +1,4 @@
-package prvi.ssetglow.extenddatastructure.graph;
+package prvi.ssetglow.extenddatastructure.datastructure.graph;
 
 import java.util.LinkedList;
 
