@@ -6,11 +6,8 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.util.StringUtils;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.string
- * @className: DulicateExecutor
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-12-23 11:25
  **/
 public class DuplicateExecutor extends CommonExecutor {

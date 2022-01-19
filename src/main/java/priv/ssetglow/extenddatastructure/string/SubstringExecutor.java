@@ -5,11 +5,8 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.string
- * @className: SubstringExecutor
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-12-23 11:28
  **/
 public class SubstringExecutor extends CommonExecutor {
@@ -24,6 +21,7 @@ public class SubstringExecutor extends CommonExecutor {
     @Contract(pure = true)
     public static String longestCommonSubsequence(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
         StringBuilder subSequence = new StringBuilder("");
+
         return subSequence.toString();
     }
 

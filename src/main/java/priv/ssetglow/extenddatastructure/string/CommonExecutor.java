@@ -5,11 +5,8 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.string
- * @className: StringAlgorithm
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-11-26 08:59
  **/
 public class CommonExecutor {

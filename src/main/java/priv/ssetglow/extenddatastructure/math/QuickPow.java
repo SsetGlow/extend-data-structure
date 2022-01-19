@@ -7,11 +7,8 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.math
- * @className: QuickPow
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-12-12 14:54
  **/
 public class QuickPow {

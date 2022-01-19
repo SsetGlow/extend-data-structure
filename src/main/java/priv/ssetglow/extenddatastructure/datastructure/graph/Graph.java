@@ -3,11 +3,8 @@ package priv.ssetglow.extenddatastructure.datastructure.graph;
 import java.util.LinkedList;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.graph
- * @className: Graph
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2022-01-13 10:16
  **/
 public class Graph<T> {

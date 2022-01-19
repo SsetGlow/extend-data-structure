@@ -4,7 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author ssetglow
+ * @author: SsetGlow
+ * @since: 0.0.1
  * @create 2021-11-10 19:46
  */
 @SpringBootApplication

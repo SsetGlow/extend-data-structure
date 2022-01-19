@@ -3,11 +3,8 @@ package priv.ssetglow.extenddatastructure;
 import priv.ssetglow.extenddatastructure.string.SubstringExecutor;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure
- * @className: Test
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-11-23 19:35
  **/
 public class Test {

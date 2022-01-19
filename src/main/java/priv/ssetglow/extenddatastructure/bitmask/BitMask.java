@@ -9,11 +9,8 @@ import priv.ssetglow.extenddatastructure.common.Constants;
 import java.math.BigInteger;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.bitmask
- * @className: BitMask
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-11-22 18:12
  **/
 public class BitMask {

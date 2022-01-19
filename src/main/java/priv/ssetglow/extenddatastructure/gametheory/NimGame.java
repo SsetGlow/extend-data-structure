@@ -4,11 +4,8 @@ import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.gametheory
- * @className: NimGame
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-12-30 17:10
  **/
 public class NimGame {

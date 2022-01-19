@@ -7,11 +7,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.string
- * @className: ExecutorHandler
- * @description: handler for executors
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-12-23 11:26
  **/
 public class ExecutorHandler {

@@ -3,11 +3,8 @@ package priv.ssetglow.extenddatastructure.common;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure
- * @className: Constants
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-11-23 09:48
  **/
 public enum Constants {

@@ -4,11 +4,8 @@ import org.jetbrains.annotations.NotNull;
 import priv.ssetglow.extenddatastructure.datastructure.tree.node.TreeNode;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.datastructure.tree
- * @className: Tree
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2022-01-06 14:21
  **/
 public class Tree<T extends Comparable<T>> {

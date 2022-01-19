@@ -6,11 +6,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * @program: extend-data-structure
- * @package: priv.ssetglow.extenddatastructure.datastructure.tree.node
- * @class: TreeNode
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2022-01-06 14:25
  **/
 public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>> {

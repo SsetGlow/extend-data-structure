@@ -13,11 +13,8 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.random
- * @className: Random
- * @description: class for all random algorithm
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-11-15 09:21
  **/
 public class RandomExecutor {

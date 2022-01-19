@@ -5,11 +5,8 @@ import org.jetbrains.annotations.NotNull;
 import java.math.BigDecimal;
 
 /**
- * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.random.bean
- * @className: RandomNode
- * @description:
  * @author: SsetGlow
+ * @since: 0.0.1
  * @date: 2021-11-16 20:02
  **/
 public class RandomNode {
