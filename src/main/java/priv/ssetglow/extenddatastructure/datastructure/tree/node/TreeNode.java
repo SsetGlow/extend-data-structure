@@ -7,8 +7,8 @@ import java.util.Objects;
 
 /**
  * @program: extend-data-structure
- * @packageName: priv.ssetglow.extenddatastructure.datastructure.tree.node
- * @className: TreeNode
+ * @package: priv.ssetglow.extenddatastructure.datastructure.tree.node
+ * @class: TreeNode
  * @description:
  * @author: SsetGlow
  * @date: 2022-01-06 14:25
@@ -49,12 +49,6 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
     }
 
     public boolean addChildNode(@NotNull TreeNode<T> childNode) {
-        for (int index = 0; index < this.childNodes.size(); ++index) {
-            if (this.childNodes.get(index).compareTo(childNode) > 0) {
-                this.childNodes.add(index, childNode);
-                return true;
-            }
-        }
         return false;
     }
 
