@@ -7,7 +7,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.string
+ * @packageName: priv.ssetglow.extenddatastructure.string
  * @className: DulicateExecutor
  * @description:
  * @author: SsetGlow

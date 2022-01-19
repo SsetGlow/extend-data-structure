@@ -5,7 +5,7 @@ import priv.ssetglow.extenddatastructure.datastructure.tree.node.TreeNode;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.datastructure.tree
+ * @packageName: priv.ssetglow.extenddatastructure.datastructure.tree
  * @className: Tree
  * @description:
  * @author: SsetGlow

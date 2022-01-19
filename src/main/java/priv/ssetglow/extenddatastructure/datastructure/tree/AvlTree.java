@@ -2,7 +2,7 @@ package priv.ssetglow.extenddatastructure.datastructure.tree;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.datastructure.tree
+ * @packageName: priv.ssetglow.extenddatastructure.datastructure.tree
  * @className: AVLTree
  * @description: Adelson-Velsky Tree
  * @author: SsetGlow

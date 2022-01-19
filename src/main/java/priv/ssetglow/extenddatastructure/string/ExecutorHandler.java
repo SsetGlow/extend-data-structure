@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.string
+ * @packageName: priv.ssetglow.extenddatastructure.string
  * @className: ExecutorHandler
  * @description: handler for executors
  * @author: SsetGlow

@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.random
+ * @packageName: priv.ssetglow.extenddatastructure.random
  * @className: Random
  * @description: class for all random algorithm
  * @author: SsetGlow

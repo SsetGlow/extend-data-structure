@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.string
+ * @packageName: priv.ssetglow.extenddatastructure.string
  * @className: StringAlgorithm
  * @description:
  * @author: SsetGlow

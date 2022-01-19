@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Contract;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.gametheory
+ * @packageName: priv.ssetglow.extenddatastructure.gametheory
  * @className: NimGame
  * @description:
  * @author: SsetGlow

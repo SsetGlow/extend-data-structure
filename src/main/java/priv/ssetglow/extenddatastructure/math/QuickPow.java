@@ -8,7 +8,7 @@ import java.math.BigInteger;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.math
+ * @packageName: priv.ssetglow.extenddatastructure.math
  * @className: QuickPow
  * @description:
  * @author: SsetGlow

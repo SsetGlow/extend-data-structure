@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure
+ * @packageName: priv.ssetglow.extenddatastructure
  * @className: Constants
  * @description:
  * @author: SsetGlow

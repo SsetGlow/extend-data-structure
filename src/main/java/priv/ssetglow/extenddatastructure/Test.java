@@ -4,7 +4,7 @@ import priv.ssetglow.extenddatastructure.string.SubstringExecutor;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure
+ * @packageName: priv.ssetglow.extenddatastructure
  * @className: Test
  * @description:
  * @author: SsetGlow

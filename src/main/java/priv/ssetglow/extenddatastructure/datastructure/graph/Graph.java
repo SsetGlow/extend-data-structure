@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.graph
+ * @packageName: priv.ssetglow.extenddatastructure.graph
  * @className: Graph
  * @description:
  * @author: SsetGlow

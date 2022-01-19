@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.random.bean
+ * @packageName: priv.ssetglow.extenddatastructure.random.bean
  * @className: RandomNode
  * @description:
  * @author: SsetGlow

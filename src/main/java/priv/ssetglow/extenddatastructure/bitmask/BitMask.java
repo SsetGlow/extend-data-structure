@@ -10,7 +10,7 @@ import java.math.BigInteger;
 
 /**
  * @program: extend-data-structure
- * @packageName: prvi.ssetglow.extenddatastructure.bitmask
+ * @packageName: priv.ssetglow.extenddatastructure.bitmask
  * @className: BitMask
  * @description:
  * @author: SsetGlow
