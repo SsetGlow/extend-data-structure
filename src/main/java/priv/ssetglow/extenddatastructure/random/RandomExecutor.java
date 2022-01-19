@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author: SsetGlow
  * @date: 2021-11-15 09:21
  **/
-public class RandomAlgorithm {
+public class RandomExecutor {
 
     @Contract(pure = false)
     public static <T extends RandomBean> Optional<T> getTargetBean(@NotNull List<T> randomBeanList) {

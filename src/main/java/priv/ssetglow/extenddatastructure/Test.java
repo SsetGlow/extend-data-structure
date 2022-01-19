@@ -1,6 +1,6 @@
 package priv.ssetglow.extenddatastructure;
 
-import priv.ssetglow.extenddatastructure.bitmask.BitMask;
+import priv.ssetglow.extenddatastructure.string.SubstringExecutor;
 
 /**
  * @program: extend-data-structure
@@ -13,6 +13,6 @@ import priv.ssetglow.extenddatastructure.bitmask.BitMask;
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(BitMask.poisonWater(10));
+        System.out.println(SubstringExecutor.longestCommonSubsequenceLength("", ""));
     }
 }
