@@ -55,7 +55,7 @@ public class BitMask {
         while (QuickPow.quickPow(Constants.TWO.getNumberValue(), n).compareTo(BigInteger.valueOf(glassCount)) < 0) {
             ++n;
         }
-        return n + 1;
+        return n;
     }
 
     public static Integer getFirstDuplicateWordIndex(String s1, String s2) {

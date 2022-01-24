@@ -3,6 +3,7 @@ package priv.ssetglow.extenddatastructure.string;
 import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import priv.ssetglow.extenddatastructure.common.Constants;
 
 /**
  * @author: SsetGlow
@@ -22,7 +23,6 @@ public class SubstringExecutor extends CommonExecutor {
     @Contract(pure = true)
     public static String longestCommonSubsequence(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
         StringBuilder subSequence = new StringBuilder("");
-
         return subSequence.toString();
     }
 
@@ -36,6 +36,12 @@ public class SubstringExecutor extends CommonExecutor {
     @Untainted
     @Contract(pure = true)
     public static String longestPalindrome(@NotNull @Untainted String s) {
+        if (s.length() == 0) {
+            return s;
+        }
+        if (s.contains(Constants.HASH_TAG.getValue()) || s.contains(Constants.DOLLAR_TAG.getValue()) || s.contains(Constants.POWER_TAG.getValue())) {
+            throw new RuntimeException("wrong char in string");
+        }
         return "";
     }
 

@@ -15,7 +15,10 @@ public enum Constants {
     TWO(4, "2", '2', 2L, 2D),
     NEGATIVE_ONE(5, "-1", '-', -1L, -1D),
     SMALL_A(6, "a", 'a', 65L, 65D),
-    BIG_A(7, "A", 'A', 97L, 97D);
+    BIG_A(7, "A", 'A', 97L, 97D),
+    HASH_TAG(8, "#", '#', 35L, 35D),
+    DOLLAR_TAG(9, "$", '$', 36L, 36D),
+    POWER_TAG(10, "^", '^', 94L, 94D);
 
     private @NotNull Integer id;
     private @NotNull String value;
