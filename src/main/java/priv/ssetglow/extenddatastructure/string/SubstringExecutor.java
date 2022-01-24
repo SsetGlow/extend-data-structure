@@ -39,10 +39,15 @@ public class SubstringExecutor extends CommonExecutor {
         if (s.length() == 0) {
             return s;
         }
-        if (s.contains(Constants.HASH_TAG.getValue()) || s.contains(Constants.DOLLAR_TAG.getValue()) || s.contains(Constants.POWER_TAG.getValue())) {
+        if (hasWrongChar(s)) {
             throw new RuntimeException("wrong char in string");
         }
         return "";
+    }
+
+    @Contract(pure = true)
+    private static boolean hasWrongChar(@NotNull @Untainted String s) {
+        return s.contains(Constants.HASH_TAG.getValue()) || s.contains(Constants.DOLLAR_TAG.getValue()) || s.contains(Constants.POWER_TAG.getValue());
     }
 
 }
