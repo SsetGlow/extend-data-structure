@@ -1,4 +1,4 @@
-package priv.ssetglow.extenddatastructure;
+package priv.ssetglow.extenddatastructure.common;
 
 import priv.ssetglow.extenddatastructure.string.SubstringExecutor;
 
