@@ -3,6 +3,8 @@ package priv.ssetglow.extenddatastructure.datastructure.tree;
 import org.jetbrains.annotations.NotNull;
 import priv.ssetglow.extenddatastructure.datastructure.tree.node.TreeNode;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -11,7 +13,11 @@ import java.util.concurrent.locks.ReentrantLock;
  * @since: 0.0.1
  * @date: 2022-01-06 14:21
  **/
-public class Tree<T extends Comparable<T>> {
+public class Tree<T extends Comparable<T>> implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 0b1L;
+
     protected @NotNull AtomicInteger size = new AtomicInteger();
     private TreeNode<T> root;
 

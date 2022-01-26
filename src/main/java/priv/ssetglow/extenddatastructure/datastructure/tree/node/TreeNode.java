@@ -2,6 +2,8 @@ package priv.ssetglow.extenddatastructure.datastructure.tree.node;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -10,8 +12,9 @@ import java.util.Objects;
  * @since: 0.0.1
  * @date: 2022-01-06 14:25
  **/
-public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>> {
+public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 0b1L;
 
     protected final @NotNull T element;
