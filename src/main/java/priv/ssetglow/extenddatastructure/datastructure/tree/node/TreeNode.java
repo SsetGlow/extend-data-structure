@@ -37,7 +37,7 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
     }
 
     public TreeNode<T> getParentNode() {
-        return parentNode;
+        return this.parentNode;
     }
 
     public void setParentNode(TreeNode<T> parentNode) {
@@ -53,14 +53,14 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object other) {
+        if (this == other) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (other == null || getClass() != other.getClass()) {
             return false;
         }
-        TreeNode<?> treeNode = (TreeNode<?>) o;
+        TreeNode<?> treeNode = (TreeNode<?>) other;
         return Objects.equals(element, treeNode.element);
     }
 
