@@ -8,7 +8,7 @@ import java.math.BigInteger;
 
 /**
  * @author: SsetGlow
- * @since: 0.0.1
+ * @since: 0.1
  * @date: 2021-12-12 14:54
  **/
 public class QuickPow {

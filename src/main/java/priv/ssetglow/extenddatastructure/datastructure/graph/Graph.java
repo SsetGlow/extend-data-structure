@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 /**
  * @author: SsetGlow
- * @since: 0.0.1
+ * @since: 0.1
  * @date: 2022-01-13 10:16
  **/
 public class Graph<T> {

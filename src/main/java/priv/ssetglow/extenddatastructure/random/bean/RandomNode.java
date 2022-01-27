@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 /**
  * @author: SsetGlow
- * @since: 0.0.1
+ * @since: 0.1
  * @date: 2021-11-16 20:02
  **/
 public class RandomNode {

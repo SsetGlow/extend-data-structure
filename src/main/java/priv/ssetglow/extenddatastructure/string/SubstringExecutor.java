@@ -7,7 +7,7 @@ import priv.ssetglow.extenddatastructure.common.Constants;
 
 /**
  * @author: SsetGlow
- * @since: 0.0.1
+ * @since: 0.1
  * @date: 2021-12-23 11:28
  **/
 public class SubstringExecutor extends CommonExecutor {

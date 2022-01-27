@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author: SsetGlow
- * @since: 0.0.1
+ * @since: 0.1
  * @date: 2022-01-06 14:21
  **/
 public class Tree<T extends Comparable<T>> implements Serializable {
@@ -23,7 +23,6 @@ public class Tree<T extends Comparable<T>> implements Serializable {
 
     private final ReentrantLock putLock = new ReentrantLock();
     private final ReentrantLock takeLock = new ReentrantLock();
-
 
     public void fullyLock() {
         this.putLock.lock();

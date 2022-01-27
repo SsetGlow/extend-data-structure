@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  * @author: SsetGlow
- * @since: 0.0.1
+ * @since: 0.1
  * @date: 2022-01-06 14:25
  **/
 public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>>, Serializable {

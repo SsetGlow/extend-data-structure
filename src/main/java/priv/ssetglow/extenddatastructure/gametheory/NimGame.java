@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Contract;
 
 /**
  * @author: SsetGlow
- * @since: 0.0.1
+ * @since: 0.1
  * @date: 2021-12-30 17:10
  **/
 public class NimGame {
