@@ -48,7 +48,11 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
         return this.childNodes;
     }
 
-    public boolean addChildNode(@NotNull TreeNode<T> childNode) {
+    public boolean addChildNode(@NotNull TreeNode<T> node) {
+        return false;
+    }
+
+    public boolean removeChildNode(@NotNull TreeNode<T> node) {
         return false;
     }
 
