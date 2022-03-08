@@ -15,7 +15,7 @@ import java.util.Objects;
 public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>>, Serializable {
 
     @Serial
-    private static final long serialVersionUID = 0b1L;
+    private static final long serialVersionUID = 1L;
 
     protected final @NotNull T element;
     private TreeNode<T> parentNode;
@@ -49,11 +49,15 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
     }
 
     public boolean addChildNode(@NotNull TreeNode<T> node) {
-        return false;
+        return childNodes.add(node);
+    }
+
+    public boolean addChildNode(@NotNull TreeNode<T> node, int index) {
+        return childNodes.add(node);
     }
 
     public boolean removeChildNode(@NotNull TreeNode<T> node) {
-        return false;
+        return childNodes.remove(node);
     }
 
     @Override

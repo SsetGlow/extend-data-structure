@@ -82,16 +82,36 @@ public class Tree<T extends Comparable<T>> implements Serializable {
         return res;
     }
 
-    public boolean update(TreeNode<T> treeNode) {
+    public boolean update(TreeNode<T> node) {
+        int index = find(root, node);
+        if (index == -1) {
+            throw new RuntimeException();
+        }
         ReentrantLock updateLock = this.updateLock;
         boolean res;
         updateLock.lock();
         try {
-            res = false;
+            res = root.addChildNode(node, index);
         } finally {
             updateLock.unlock();
         }
         return res;
+    }
+
+    private int find(TreeNode<T> start, TreeNode<T> node) {
+        if (start.getChildNodes().contains(node)) {
+            return start.getChildNodes().indexOf(node);
+        }
+        if (start.getChildNodes().isEmpty()) {
+            return -1;
+        }
+        int index;
+        for (TreeNode<T> n : start.getChildNodes()) {
+            if ((index = find(n, node)) != -1) {
+                return index;
+            }
+        }
+        return -1;
     }
 
 }
