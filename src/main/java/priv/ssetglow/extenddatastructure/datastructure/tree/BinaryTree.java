@@ -1,6 +1,5 @@
 package priv.ssetglow.extenddatastructure.datastructure.tree;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
 
@@ -26,7 +25,6 @@ public class BinaryTree<T extends Comparable<T>> {
         size = 1;
     }
 
-    @NotNull
     public void insert(BinaryTreeNode<T> node) {
         final ReentrantLock lock = this.lock;
         lock.lock();
@@ -37,20 +35,6 @@ public class BinaryTree<T extends Comparable<T>> {
             } else {
                 insert(root, node);
             }
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    public boolean remove(BinaryTreeNode<T> node) {
-        final ReentrantLock lock = this.lock;
-        lock.lock();
-        try {
-            BinaryTreeNode<T> targetNode = find(node);
-            if (targetNode == null) {
-                return false;
-            }
-            return true;
         } finally {
             lock.unlock();
         }
@@ -72,6 +56,28 @@ public class BinaryTree<T extends Comparable<T>> {
                 insert(current.getLeftChild(), newNode);
             }
         }
+    }
+
+    public boolean remove(BinaryTreeNode<T> node) {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            if (root == null) {
+                return false;
+            }
+            if (root.equals(node)) {
+                root = null;
+                size--;
+            }
+            return remove(root, node);
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    private boolean remove(BinaryTreeNode<T> current, BinaryTreeNode<T> target) {
+        
+        return false;
     }
 
     @Nullable

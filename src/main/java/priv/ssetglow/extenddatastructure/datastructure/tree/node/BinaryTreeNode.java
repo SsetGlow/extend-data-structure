@@ -32,14 +32,12 @@ public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<Binar
         return this.rightChild;
     }
 
-    @NotNull
-    public BinaryTreeNode<T> setLeftChild(@NotNull BinaryTreeNode<T> node) {
+    public BinaryTreeNode<T> setLeftChild(BinaryTreeNode<T> node) {
         this.leftChild = node;
         return this.leftChild;
     }
-
-    @NotNull
-    public BinaryTreeNode<T> setRightChild(@NotNull BinaryTreeNode<T> node) {
+    
+    public BinaryTreeNode<T> setRightChild(BinaryTreeNode<T> node) {
         this.rightChild = node;
         return this.rightChild;
     }
