@@ -8,18 +8,18 @@ import org.jetbrains.annotations.Nullable;
  * @since: 1.0.0
  * @date: 2022-03-18 周五 14:52
  **/
-public class BinaryTreeNode<T extends Comparable<T>> extends TreeNode<T> {
+public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<BinaryTreeNode<T>> {
 
+    private T element;
     private BinaryTreeNode<T> leftChild;
     private BinaryTreeNode<T> rightChild;
 
     public BinaryTreeNode(@NotNull T element) {
-        super(element);
+        this.element = element;
     }
 
-    @Override
     public @NotNull T getElement() {
-        return super.getElement();
+        return element;
     }
 
     @Nullable
@@ -44,4 +44,8 @@ public class BinaryTreeNode<T extends Comparable<T>> extends TreeNode<T> {
         return this.rightChild;
     }
 
+    @Override
+    public int compareTo(@NotNull BinaryTreeNode<T> o) {
+        return this.element.compareTo(o.getElement());
+    }
 }
