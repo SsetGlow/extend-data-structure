@@ -36,10 +36,30 @@ public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<Binar
         this.leftChild = node;
         return this.leftChild;
     }
-    
+
     public BinaryTreeNode<T> setRightChild(BinaryTreeNode<T> node) {
         this.rightChild = node;
         return this.rightChild;
+    }
+
+    public boolean isLeft() {
+        return hasNoChild();
+    }
+
+    public boolean onlyHasRightChild() {
+        return null != leftChild && null == rightChild;
+    }
+
+    public boolean onlyHasLeftChild() {
+        return null != leftChild && null == rightChild;
+    }
+
+    public boolean hasNoChild() {
+        return null == leftChild && null == rightChild;
+    }
+
+    public boolean hasBothChild() {
+        return null != leftChild && null != rightChild;
     }
 
     @Override

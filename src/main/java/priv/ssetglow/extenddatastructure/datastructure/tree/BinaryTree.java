@@ -69,6 +69,10 @@ public class BinaryTree<T extends Comparable<T>> {
                 root = null;
                 size--;
             }
+            node = find(node);
+            if (node == null) {
+                return false;
+            }
             return remove(root, node);
         } finally {
             lock.unlock();
@@ -76,8 +80,29 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     private boolean remove(BinaryTreeNode<T> current, BinaryTreeNode<T> target) {
-        
-        return false;
+        if (target.equals(current.getRightChild()) || current.equals(current.getLeftChild())) {
+            if (target.hasNoChild()) {
+                return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(null) : current.setRightChild(null));
+            } else if (target.onlyHasLeftChild()) {
+                return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(target.getLeftChild()) : current.setRightChild(target.getLeftChild()));
+            } else if (target.onlyHasRightChild()) {
+                return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(target.getRightChild()) : current.setRightChild(target.getRightChild()));
+            } else {
+                BinaryTreeNode<T> successor = successor(target);
+                return remove(successor) && null != (target.equals(current.getLeftChild()) ? current.setLeftChild(successor) : target.setRightChild(successor));
+            }
+        } else if (target.compareTo(current) < 0) {
+            return remove(current.getLeftChild(), target);
+        } else {
+            return remove(current.getRightChild(), target);
+        }
+    }
+
+    private BinaryTreeNode<T> successor(BinaryTreeNode<T> current) {
+        if (current.isLeft()) {
+            return current;
+        }
+        return null == current.getLeftChild() ? successor(current.getRightChild()) : current.getLeftChild();
     }
 
     @Nullable
