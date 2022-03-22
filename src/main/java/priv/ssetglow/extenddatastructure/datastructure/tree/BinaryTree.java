@@ -88,8 +88,12 @@ public class BinaryTree<T extends Comparable<T>> {
             } else if (target.onlyHasRightChild()) {
                 return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(target.getRightChild()) : current.setRightChild(target.getRightChild()));
             } else {
-                BinaryTreeNode<T> successor = successor(target);
-                return remove(successor) && null != (target.equals(current.getLeftChild()) ? current.setLeftChild(successor) : target.setRightChild(successor));
+                BinaryTreeNode<T> successor = findSuccessor(target);
+                if (!remove(successor)) {
+                    throw new RuntimeException("remove successor fail");
+                }
+                successor.setBoth(target.getLeftChild(), target.getRightChild());
+                return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(successor) : target.setRightChild(successor));
             }
         } else if (target.compareTo(current) < 0) {
             return remove(current.getLeftChild(), target);
@@ -98,11 +102,11 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
-    private BinaryTreeNode<T> successor(BinaryTreeNode<T> current) {
+    private BinaryTreeNode<T> findSuccessor(BinaryTreeNode<T> current) {
         if (current.isLeft()) {
             return current;
         }
-        return null == current.getLeftChild() ? successor(current.getRightChild()) : current.getLeftChild();
+        return null == current.getLeftChild() ? findSuccessor(current.getRightChild()) : current.getLeftChild();
     }
 
     @Nullable

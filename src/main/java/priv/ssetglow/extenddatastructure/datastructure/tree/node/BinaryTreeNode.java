@@ -18,6 +18,12 @@ public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<Binar
         this.element = element;
     }
 
+    public BinaryTreeNode(T element, @Nullable BinaryTreeNode<T> leftChild, @Nullable BinaryTreeNode<T> rightChild) {
+        this.element = element;
+        this.leftChild = leftChild;
+        this.rightChild = rightChild;
+    }
+
     public @NotNull T getElement() {
         return element;
     }
@@ -30,6 +36,11 @@ public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<Binar
     @Nullable
     public BinaryTreeNode<T> getRightChild() {
         return this.rightChild;
+    }
+
+    public void setBoth(@Nullable BinaryTreeNode<T> leftChild, @Nullable BinaryTreeNode<T> rightChild) {
+        this.leftChild = leftChild;
+        this.rightChild = rightChild;
     }
 
     public BinaryTreeNode<T> setLeftChild(BinaryTreeNode<T> node) {
