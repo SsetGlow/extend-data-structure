@@ -103,7 +103,7 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     private BinaryTreeNode<T> findSuccessor(BinaryTreeNode<T> current) {
-        if (current.isLeft()) {
+        if (current.isLeaf()) {
             return current;
         }
         return null == current.getLeftChild() ? findSuccessor(current.getRightChild()) : current.getLeftChild();

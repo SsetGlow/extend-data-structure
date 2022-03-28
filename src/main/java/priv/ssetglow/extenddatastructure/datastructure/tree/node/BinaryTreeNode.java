@@ -53,7 +53,7 @@ public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<Binar
         return this.rightChild;
     }
 
-    public boolean isLeft() {
+    public boolean isLeaf() {
         return hasNoChild();
     }
 
