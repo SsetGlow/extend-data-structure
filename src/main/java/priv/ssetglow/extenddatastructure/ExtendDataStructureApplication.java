@@ -18,8 +18,8 @@ public class ExtendDataStructureApplication {
         for (Integer i : datas) {
             binaryTree.insert(new BinaryTreeNode<>(i));
         }
-        BinaryTreeNode<Integer> node = binaryTree.find(new BinaryTreeNode<>(3));
-        System.out.println(node);
+        binaryTree.remove(7);
+        System.out.println(binaryTree);
     }
 
 }

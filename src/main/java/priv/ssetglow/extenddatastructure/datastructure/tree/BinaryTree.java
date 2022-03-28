@@ -58,6 +58,28 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
+    public boolean remove(T element) {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            if (root == null) {
+                return false;
+            }
+            BinaryTreeNode<T> node = find(element);
+            if (node == null) {
+                return false;
+            }
+            if (root.equals(node)) {
+                root = null;
+                size--;
+                return true;
+            }
+            return remove(root, node);
+        } finally {
+            lock.unlock();
+        }
+    }
+
     public boolean remove(BinaryTreeNode<T> node) {
         final ReentrantLock lock = this.lock;
         lock.lock();
@@ -68,8 +90,8 @@ public class BinaryTree<T extends Comparable<T>> {
             if (root.equals(node)) {
                 root = null;
                 size--;
+                return true;
             }
-            node = find(node);
             if (node == null) {
                 return false;
             }
@@ -80,9 +102,9 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     private boolean remove(BinaryTreeNode<T> current, BinaryTreeNode<T> target) {
-        if (target.equals(current.getRightChild()) || current.equals(current.getLeftChild())) {
-            if (target.hasNoChild()) {
-                return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(null) : current.setRightChild(null));
+        if (target.equals(current.getRightChild()) || target.equals(current.getLeftChild())) {
+            if (target.isLeaf()) {
+                return null == (target.equals(current.getLeftChild()) ? current.setLeftChild(null) : current.setRightChild(null));
             } else if (target.onlyHasLeftChild()) {
                 return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(target.getLeftChild()) : current.setRightChild(target.getLeftChild()));
             } else if (target.onlyHasRightChild()) {
@@ -93,7 +115,7 @@ public class BinaryTree<T extends Comparable<T>> {
                     throw new RuntimeException("remove successor fail");
                 }
                 successor.setBoth(target.getLeftChild(), target.getRightChild());
-                return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(successor) : target.setRightChild(successor));
+                return null != (target.equals(current.getLeftChild()) ? current.setLeftChild(successor) : current.setRightChild(successor));
             }
         } else if (target.compareTo(current) < 0) {
             return remove(current.getLeftChild(), target);
@@ -106,7 +128,12 @@ public class BinaryTree<T extends Comparable<T>> {
         if (current.isLeaf()) {
             return current;
         }
-        return null == current.getLeftChild() ? findSuccessor(current.getRightChild()) : current.getLeftChild();
+        return null == current.getLeftChild() ? findSuccessor(current.getRightChild()) : findSuccessor(current.getLeftChild());
+    }
+
+    @Nullable
+    public BinaryTreeNode<T> find(T element) {
+        return find(new BinaryTreeNode<T>(element));
     }
 
     @Nullable
@@ -122,15 +149,7 @@ public class BinaryTree<T extends Comparable<T>> {
         if (node.getElement().equals(value)) {
             return node;
         }
-        return node.getElement().compareTo(value) < 0 ? find(root.getRightChild(), value) : find(root.getLeftChild(), value);
-    }
-
-    public void clear(BinaryTreeNode<T> node) {
-        if (node != null) {
-            clear(node.getLeftChild());
-            clear(node.getRightChild());
-            node = null;
-        }
+        return node.getElement().compareTo(value) < 0 ? find(node.getRightChild(), value) : find(node.getLeftChild(), value);
     }
 
     public void clear() {
