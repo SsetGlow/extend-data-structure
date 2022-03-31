@@ -2,14 +2,16 @@ package priv.ssetglow.extenddatastructure.random;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.util.CollectionUtils;
-import priv.ssetglow.extenddatastructure.random.bean.RandomBean;
 import priv.ssetglow.extenddatastructure.common.Constants;
+import priv.ssetglow.extenddatastructure.random.bean.RandomBean;
 import priv.ssetglow.extenddatastructure.random.bean.RandomNode;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -21,7 +23,7 @@ public class RandomExecutor {
 
     @Contract(pure = false)
     public static <T extends RandomBean> Optional<T> getTargetBean(@NotNull List<T> randomBeanList) {
-        if (CollectionUtils.isEmpty(randomBeanList)) {
+        if (randomBeanList.isEmpty()) {
             return Optional.empty();
         }
         BigDecimal probability = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.getNumberValue().intValue(), RoundingMode.HALF_DOWN);

@@ -3,7 +3,6 @@ package priv.ssetglow.extenddatastructure.string;
 import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.util.StringUtils;
 
 /**
  * @author: SsetGlow
@@ -35,7 +34,7 @@ public class DuplicateExecutor extends CommonExecutor {
     @Untainted
     @Contract(pure = true)
     public static int boyerMooreMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
-        if (!StringUtils.hasText(source) || !StringUtils.hasText(pattern)) {
+        if (source.isBlank() || pattern.isBlank()) {
             return -1;
         }
         int m = source.length(), n = pattern.length(), i = n - 1;
