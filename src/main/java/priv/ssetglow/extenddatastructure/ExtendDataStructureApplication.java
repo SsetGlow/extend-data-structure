@@ -1,8 +1,6 @@
 package priv.ssetglow.extenddatastructure;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import priv.ssetglow.extenddatastructure.datastructure.tree.BinaryTree;
-import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
 
 /**
  * @author: SsetGlow
@@ -13,13 +11,7 @@ import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
 public class ExtendDataStructureApplication {
 
     public static void main(String[] args) {
-        BinaryTree<Integer> binaryTree = new BinaryTree<>();
-        int[] datas = {5, 3, 7, 6, 8, 4, 2, 1, 9};
-        for (Integer i : datas) {
-            binaryTree.insert(new BinaryTreeNode<>(i));
-        }
-        binaryTree.remove(7);
-        System.out.println(binaryTree);
+        System.out.println(1 % 0);
     }
 
 }
