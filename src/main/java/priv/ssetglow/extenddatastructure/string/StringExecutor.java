@@ -30,12 +30,12 @@ public class StringExecutor {
         return -1;
     }
 
-    private static int[] getNext(@NotNull @Untainted String string) {
-        int len = string.length(), i = 0, j = -1;
+    private static int[] getNext(@NotNull @Untainted String s) {
+        int len = s.length(), i = 0, j = -1;
         int[] next = new int[len + 1];
         next[0] = -1;
         while (i < len - 1) {
-            if (j == -1 || string.charAt(i) == string.charAt(j)) {
+            if (j == -1 || s.charAt(i) == s.charAt(j)) {
                 ++i;
                 ++j;
                 next[i] = j;
