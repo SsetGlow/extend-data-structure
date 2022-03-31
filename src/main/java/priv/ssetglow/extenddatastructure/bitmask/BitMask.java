@@ -1,10 +1,9 @@
 package priv.ssetglow.extenddatastructure.bitmask;
 
 import org.checkerframework.checker.tainting.qual.Untainted;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import priv.ssetglow.extenddatastructure.math.QuickPow;
 import priv.ssetglow.extenddatastructure.common.Constants;
+import priv.ssetglow.extenddatastructure.math.QuickPow;
 
 import java.math.BigInteger;
 
@@ -15,9 +14,7 @@ import java.math.BigInteger;
  **/
 public class BitMask {
 
-    @Untainted
-    @Contract(pure = true)
-    public static Boolean hasDuplicateWord(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
+    public static boolean hasDuplicateWord(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
         int[] masks = new int[2];
         for (int i = 0; i < s1.length(); ++i) {
             masks[0] |= 1 << (s1.charAt(i) - 'a');
@@ -28,9 +25,7 @@ public class BitMask {
         return (masks[0] & masks[1]) != 0;
     }
 
-    @Untainted
-    @Contract(pure = true)
-    public static Boolean hasDuplicateWord(@NotNull @Untainted String[] words) {
+    public static boolean hasDuplicateWord(@NotNull @Untainted String[] words) {
         int[] masks = new int[words.length];
         for (int i = 0; i < words.length; ++i) {
             for (int j = 0; j < words[i].length(); ++j) {
@@ -39,14 +34,12 @@ public class BitMask {
         }
         for (int i = 1; i < masks.length; ++i) {
             if ((masks[i] & masks[i - 1]) != 0) {
-                return Boolean.TRUE;
+                return true;
             }
         }
-        return Boolean.FALSE;
+        return false;
     }
 
-    @Untainted
-    @Contract(pure = true)
     public static int poisonWater(int glassCount) {
         if (glassCount == 0) {
             return 0;

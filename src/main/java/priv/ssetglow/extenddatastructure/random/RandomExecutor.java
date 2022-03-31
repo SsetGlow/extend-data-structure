@@ -1,6 +1,5 @@
 package priv.ssetglow.extenddatastructure.random;
 
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import priv.ssetglow.extenddatastructure.common.Constants;
 import priv.ssetglow.extenddatastructure.random.bean.RandomBean;
@@ -21,7 +20,6 @@ import java.util.concurrent.atomic.AtomicReference;
  **/
 public class RandomExecutor {
 
-    @Contract(pure = false)
     public static <T extends RandomBean> Optional<T> getTargetBean(@NotNull List<T> randomBeanList) {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
@@ -42,7 +40,6 @@ public class RandomExecutor {
         return targetBeanReference.get() != null ? Optional.of(targetBeanReference.get()) : Optional.of(randomBeanList.get(0));
     }
 
-    @Contract(pure = false)
     public static <T extends RandomBean> Optional<T> bTreeRandom(@NotNull List<T> randomBeanList) {
         Map<Integer, RandomNode> randomTree = new HashMap<>(1 << 3);
         //build tree

@@ -1,7 +1,6 @@
 package priv.ssetglow.extenddatastructure.string;
 
 import org.checkerframework.checker.tainting.qual.Untainted;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
@@ -13,7 +12,6 @@ import java.util.Arrays;
  **/
 public class StringExecutor {
 
-    @Contract(pure = true)
     public static int violentMatch(@NotNull @Untainted String sourceString, @NotNull @Untainted String pattern) {
         int sourceLen = sourceString.length(), patternLen = pattern.length();
         int i = 0, j = 0;
@@ -32,7 +30,6 @@ public class StringExecutor {
         return -1;
     }
 
-    @Contract(pure = true)
     private static int[] getNext(@NotNull @Untainted String string) {
         int len = string.length(), i = 0, j = -1;
         int[] next = new int[len + 1];
@@ -49,7 +46,6 @@ public class StringExecutor {
         return next;
     }
 
-    @Contract(pure = true)
     public static int knuthMorrisPrattMatch(@NotNull @Untainted String sourceString, @NotNull @Untainted String pattern) {
         int sourceLen = sourceString.length(), patternLen = pattern.length();
         int[] next = getNext(pattern);
@@ -68,7 +64,6 @@ public class StringExecutor {
         return -1;
     }
 
-    @Contract(pure = true)
     private static int[] badCharRule(@NotNull @Untainted String string) {
         int[] badChar = new int[256];
         Arrays.fill(badChar, -1);
@@ -77,8 +72,7 @@ public class StringExecutor {
         }
         return badChar;
     }
-
-    @Contract(pure = true)
+    
     public static int boyerMooreMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
         if (source.isBlank() || pattern.isBlank()) {
             return -1;
