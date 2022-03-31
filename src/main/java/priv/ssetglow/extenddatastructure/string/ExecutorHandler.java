@@ -12,6 +12,7 @@ import java.util.Arrays;
  * @date: 2021-12-23 11:26
  **/
 public class ExecutorHandler {
+    
     @Untainted
     @Contract(pure = true)
     public static int[] getNext(@NotNull @Untainted String string) {
