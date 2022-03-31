@@ -72,7 +72,7 @@ public class StringExecutor {
         }
         return badChar;
     }
-    
+
     public static int boyerMooreMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
         if (source.isBlank() || pattern.isBlank()) {
             return -1;
