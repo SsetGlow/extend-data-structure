@@ -177,8 +177,7 @@ public class BinaryTree<T extends Comparable<T>> {
             elementList.add(node.getElement());
         }
     }
-
-
+    
     public void clear() {
         root = null;
         size = 0;
