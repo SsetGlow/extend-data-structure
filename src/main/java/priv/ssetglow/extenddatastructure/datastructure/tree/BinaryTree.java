@@ -1,8 +1,10 @@
 package priv.ssetglow.extenddatastructure.datastructure.tree;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
 
+import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -151,6 +153,31 @@ public class BinaryTree<T extends Comparable<T>> {
         }
         return node.getElement().compareTo(value) < 0 ? find(node.getRightChild(), value) : find(node.getLeftChild(), value);
     }
+
+    public void preOrderTraverse(@NotNull List<T> elementList, @Nullable BinaryTreeNode<T> node) {
+        if (null != node) {
+            elementList.add(node.getElement());
+            preOrderTraverse(elementList, node.getLeftChild());
+            preOrderTraverse(elementList, node.getRightChild());
+        }
+    }
+
+    public void inOrderTraverse(@NotNull List<T> elementList, @Nullable BinaryTreeNode<T> node) {
+        if (null != node) {
+            inOrderTraverse(elementList, node.getLeftChild());
+            elementList.add(node.getElement());
+            inOrderTraverse(elementList, node.getRightChild());
+        }
+    }
+
+    public void postOrderTraverse(@NotNull List<T> elementList, @Nullable BinaryTreeNode<T> node) {
+        if (null != node) {
+            postOrderTraverse(elementList, node);
+            postOrderTraverse(elementList, node);
+            elementList.add(node.getElement());
+        }
+    }
+
 
     public void clear() {
         root = null;
