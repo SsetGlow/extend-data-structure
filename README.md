@@ -5,6 +5,7 @@
 	<a><img alt="" src="https://img.shields.io/github/issues/SsetGlow/extend-data-structure"></a>
 	<a><img alt="" src="https://img.shields.io/github/repo-size/SsetGlow/extend-data-structure"></a>
 	<a><img alt="" src="https://img.shields.io/badge/ExtendDS-v0.0.1-brightgreen"></a>
+    <a><img alt="" src="https://img.shields.io/badge/Powered by-Jetbrains Intellij IDEA-brightgreen"></a>
 	<a><img alt="" src="https://img.shields.io/github/license/SsetGlow/extend-data-structure"></a>
 </p>
 
