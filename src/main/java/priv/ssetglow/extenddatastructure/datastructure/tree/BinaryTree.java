@@ -76,7 +76,11 @@ public class BinaryTree<T extends Comparable<T>> {
                 size--;
                 return true;
             }
-            return remove(root, node);
+            if (remove(root, node)) {
+                size--;
+                return true;
+            }
+            return false;
         } finally {
             lock.unlock();
         }
@@ -97,7 +101,11 @@ public class BinaryTree<T extends Comparable<T>> {
             if (null == node) {
                 return false;
             }
-            return remove(root, node);
+            if (remove(root, node)) {
+                size--;
+                return true;
+            }
+            return false;
         } finally {
             lock.unlock();
         }
