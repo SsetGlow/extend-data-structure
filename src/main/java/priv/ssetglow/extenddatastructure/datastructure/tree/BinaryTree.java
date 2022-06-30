@@ -27,7 +27,7 @@ public class BinaryTree<T extends Comparable<T>> {
         size = 1;
     }
 
-    public void insert(BinaryTreeNode<T> node) {
+    public void insert(@NotNull BinaryTreeNode<T> node) {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
@@ -42,7 +42,7 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
-    private void insert(BinaryTreeNode<T> current, BinaryTreeNode<T> newNode) {
+    private void insert(@NotNull BinaryTreeNode<T> current, @NotNull BinaryTreeNode<T> newNode) {
         if (current.compareTo(newNode) < 0) {
             if (current.getRightChild() == null) {
                 size++;
@@ -94,7 +94,7 @@ public class BinaryTree<T extends Comparable<T>> {
                 size--;
                 return true;
             }
-            if (node == null) {
+            if (null == node) {
                 return false;
             }
             return remove(root, node);
@@ -126,7 +126,7 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
-    private BinaryTreeNode<T> findSuccessor(BinaryTreeNode<T> current) {
+    private BinaryTreeNode<T> findSuccessor(@NotNull BinaryTreeNode<T> current) {
         if (current.isLeaf()) {
             return current;
         }
@@ -139,15 +139,12 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     @Nullable
-    public BinaryTreeNode<T> find(BinaryTreeNode<T> node) {
+    public BinaryTreeNode<T> find(@NotNull BinaryTreeNode<T> node) {
         return find(root, node.getElement());
     }
 
     @Nullable
-    private BinaryTreeNode<T> find(BinaryTreeNode<T> node, T value) {
-        if (node == null) {
-            return null;
-        }
+    private BinaryTreeNode<T> find(@NotNull BinaryTreeNode<T> node, T value) {
         if (node.getElement().equals(value)) {
             return node;
         }
@@ -177,7 +174,7 @@ public class BinaryTree<T extends Comparable<T>> {
             elementList.add(node.getElement());
         }
     }
-    
+
     public void clear() {
         root = null;
         size = 0;
