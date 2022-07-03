@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
  **/
 public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<BinaryTreeNode<T>> {
 
-    private T element;
+    final private T element;
     private BinaryTreeNode<T> leftChild;
     private BinaryTreeNode<T> rightChild;
 
