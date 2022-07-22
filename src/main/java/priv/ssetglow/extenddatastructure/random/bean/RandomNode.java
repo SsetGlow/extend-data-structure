@@ -9,13 +9,20 @@ import java.math.BigDecimal;
  * @since: 0.1
  * @date: 2021-11-16 20:02
  **/
-public class RandomNode {
+public class RandomNode implements Comparable<RandomNode> {
     private @NotNull BigDecimal begin;
     private @NotNull BigDecimal end;
+    private int index;
 
     public RandomNode(@NotNull BigDecimal begin, @NotNull BigDecimal end) {
         this.begin = begin;
         this.end = end;
+    }
+
+    public RandomNode(int index, @NotNull BigDecimal begin, @NotNull BigDecimal end) {
+        this.begin = begin;
+        this.end = end;
+        this.index = index;
     }
 
     public @NotNull BigDecimal getBegin() {
@@ -32,5 +39,14 @@ public class RandomNode {
 
     public void setEnd(@NotNull BigDecimal end) {
         this.end = end;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    @Override
+    public int compareTo(@NotNull RandomNode o) {
+        return o.getBegin().compareTo(end);
     }
 }

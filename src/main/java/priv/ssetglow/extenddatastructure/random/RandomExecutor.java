@@ -2,15 +2,14 @@ package priv.ssetglow.extenddatastructure.random;
 
 import org.jetbrains.annotations.NotNull;
 import priv.ssetglow.extenddatastructure.common.Constants;
+import priv.ssetglow.extenddatastructure.datastructure.tree.BinaryTree;
+import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
 import priv.ssetglow.extenddatastructure.random.bean.RandomBean;
 import priv.ssetglow.extenddatastructure.random.bean.RandomNode;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -60,4 +59,29 @@ public class RandomExecutor {
         }
         return Optional.of(randomBeanList.get(targetIndex));
     }
+
+    public static <T extends RandomBean> Optional<T> treeRandom(@NotNull List<T> randomBeanList) throws RuntimeException {
+        if (randomBeanList.isEmpty()) {
+            return Optional.empty();
+        }
+        RandomNode[] nodes = new RandomNode[randomBeanList.size()];
+        RandomBean firstBean = randomBeanList.get(0);
+        nodes[0] = new RandomNode(0, BigDecimal.ZERO, firstBean.getProbability());
+        for (int i = 1; i < randomBeanList.size(); ++i) {
+            RandomBean current = randomBeanList.get(i);
+            RandomNode last = nodes[i - 1];
+            nodes[i] = new RandomNode(i, last.getBegin().add(current.getProbability()), last.getEnd().add(current.getProbability()));
+        }
+        BinaryTree<RandomNode> tree = new BinaryTree<>();
+        for (RandomNode node : nodes) {
+            tree.insert(new BinaryTreeNode<>(node));
+        }
+        BigDecimal probability = BigDecimal.valueOf(new Random().nextDouble());
+        BinaryTreeNode<RandomNode> treeNode = tree.find(new RandomNode(probability, probability));
+        if (null == treeNode) {
+            return Optional.of(randomBeanList.get(0));
+        }
+        return Optional.of(randomBeanList.get(treeNode.getElement().getIndex()));
+    }
+
 }
