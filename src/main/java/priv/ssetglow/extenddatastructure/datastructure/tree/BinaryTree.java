@@ -17,7 +17,7 @@ public class BinaryTree<T extends Comparable<T>> {
     private final ReentrantLock lock = new ReentrantLock(true);
 
     private BinaryTreeNode<T> root;
-    private int size;
+    public int size;
 
     public BinaryTree() {
     }

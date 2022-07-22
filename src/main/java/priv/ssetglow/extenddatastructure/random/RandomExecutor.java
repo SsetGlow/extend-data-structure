@@ -19,6 +19,8 @@ import java.util.concurrent.atomic.AtomicReference;
  **/
 public class RandomExecutor {
 
+    private static final BinaryTree<RandomNode> TREE = new BinaryTree<>();
+
     public static <T extends RandomBean> Optional<T> listRandom(@NotNull List<T> randomBeanList) throws RuntimeException {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
@@ -64,6 +66,27 @@ public class RandomExecutor {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
         }
+        if (TREE.size == 0) {
+            treeify(randomBeanList);
+            return doTreeRandom(randomBeanList);
+        } else if (TREE.size == randomBeanList.size()) {
+            return doTreeRandom(randomBeanList);
+        } else {
+            treeify(randomBeanList);
+            return doTreeRandom(randomBeanList);
+        }
+    }
+
+    private static <T extends RandomBean> Optional<T> doTreeRandom(@NotNull List<T> randomBeanList) {
+        BigDecimal probability = BigDecimal.valueOf(new Random().nextDouble());
+        BinaryTreeNode<RandomNode> treeNode = TREE.find(new RandomNode(probability, probability));
+        if (null == treeNode) {
+            return Optional.of(randomBeanList.get(0));
+        }
+        return Optional.of(randomBeanList.get(treeNode.getElement().getIndex()));
+    }
+
+    private static <T extends RandomBean> void treeify(@NotNull List<T> randomBeanList) {
         RandomNode[] nodes = new RandomNode[randomBeanList.size()];
         RandomBean firstBean = randomBeanList.get(0);
         nodes[0] = new RandomNode(0, BigDecimal.ZERO, firstBean.getProbability());
@@ -76,12 +99,6 @@ public class RandomExecutor {
         for (RandomNode node : nodes) {
             tree.insert(new BinaryTreeNode<>(node));
         }
-        BigDecimal probability = BigDecimal.valueOf(new Random().nextDouble());
-        BinaryTreeNode<RandomNode> treeNode = tree.find(new RandomNode(probability, probability));
-        if (null == treeNode) {
-            return Optional.of(randomBeanList.get(0));
-        }
-        return Optional.of(randomBeanList.get(treeNode.getElement().getIndex()));
     }
 
 }
