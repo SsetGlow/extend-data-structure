@@ -66,15 +66,16 @@ public class RandomExecutor {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
         }
+        //tree just init
         if (TREE.size == 0) {
             treeify(randomBeanList);
             return doTreeRandom(randomBeanList);
-        } else if (TREE.size == randomBeanList.size()) {
-            return doTreeRandom(randomBeanList);
-        } else {
-            treeify(randomBeanList);
+        }
+        if (TREE.size == randomBeanList.size()) {
             return doTreeRandom(randomBeanList);
         }
+        treeify(randomBeanList);
+        return doTreeRandom(randomBeanList);
     }
 
     private static <T extends RandomBean> Optional<T> doTreeRandom(@NotNull List<T> randomBeanList) {
