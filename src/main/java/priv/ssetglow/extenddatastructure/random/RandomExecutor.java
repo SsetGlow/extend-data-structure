@@ -40,7 +40,7 @@ public class RandomExecutor {
         return targetBeanReference.get() != null ? Optional.of(targetBeanReference.get()) : Optional.of(randomBeanList.get(0));
     }
 
-    public static <T extends RandomBean> Optional<T> bTreeRandom(@NotNull List<T> randomBeanList) {
+    public static <T extends RandomBean> Optional<T> mapRandom(@NotNull List<T> randomBeanList) {
         Map<Integer, RandomNode> randomTree = new HashMap<>(1 << 3);
         //build tree
         for (int index = 0; index < randomBeanList.size(); ++index) {
