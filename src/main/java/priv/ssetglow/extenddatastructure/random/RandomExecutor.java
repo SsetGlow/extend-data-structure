@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
  **/
 public class RandomExecutor {
 
-    public static <T extends RandomBean> Optional<T> listRandom(@NotNull List<T> randomBeanList) {
+    public static <T extends RandomBean> Optional<T> listRandom(@NotNull List<T> randomBeanList) throws RuntimeException {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
         }
@@ -40,16 +40,19 @@ public class RandomExecutor {
         return targetBeanReference.get() != null ? Optional.of(targetBeanReference.get()) : Optional.of(randomBeanList.get(0));
     }
 
-    public static <T extends RandomBean> Optional<T> mapRandom(@NotNull List<T> randomBeanList) {
-        Map<Integer, RandomNode> randomTree = new HashMap<>(1 << 3);
+    public static <T extends RandomBean> Optional<T> mapRandom(@NotNull List<T> randomBeanList) throws RuntimeException {
+        if (randomBeanList.isEmpty()) {
+            return Optional.empty();
+        }
+        Map<Integer, RandomNode> randomMap = new HashMap<>(1 << 3);
         //build tree
         for (int index = 0; index < randomBeanList.size(); ++index) {
-            randomTree.put(index, index == 0 ? new RandomNode(BigDecimal.ZERO, randomBeanList.get(index).getProbability()) : new RandomNode(randomTree.get(index - 1).getEnd(), randomTree.get(index - 1).getEnd().add(randomBeanList.get(index).getProbability())));
+            randomMap.put(index, index == 0 ? new RandomNode(BigDecimal.ZERO, randomBeanList.get(index).getProbability()) : new RandomNode(randomMap.get(index - 1).getEnd(), randomMap.get(index - 1).getEnd().add(randomBeanList.get(index).getProbability())));
         }
         BigDecimal target = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.getNumberValue().intValue(), RoundingMode.HALF_DOWN);
         int targetIndex = 0;
-        for (int index = 0; index < randomTree.size(); ++index) {
-            RandomNode node = randomTree.get(index);
+        for (int index = 0; index < randomMap.size(); ++index) {
+            RandomNode node = randomMap.get(index);
             if (node.getBegin().compareTo(target) <= 0 && node.getEnd().compareTo(target) >= 0) {
                 targetIndex = index;
                 break;
