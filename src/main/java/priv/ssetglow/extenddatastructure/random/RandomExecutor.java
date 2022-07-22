@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
  **/
 public class RandomExecutor {
 
-    public static <T extends RandomBean> Optional<T> getTargetBean(@NotNull List<T> randomBeanList) {
+    public static <T extends RandomBean> Optional<T> listRandom(@NotNull List<T> randomBeanList) {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
         }
