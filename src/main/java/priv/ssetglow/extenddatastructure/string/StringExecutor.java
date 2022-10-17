@@ -92,4 +92,8 @@ public class StringExecutor {
         return -1;
     }
 
+    public String longestPalindrome(String string) {
+        return "";
+    }
+
 }
