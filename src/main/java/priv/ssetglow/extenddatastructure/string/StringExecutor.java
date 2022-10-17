@@ -9,14 +9,16 @@ import java.util.Arrays;
  * @author: SsetGlow
  * @since: 1.0.0
  * @date: 2022-03-31 周四 17:17
+ * an executor for all string related algorithms,
+ * contains all violent functions and some highly promoted algorithms
  **/
 public class StringExecutor {
 
-    public static int violentMatch(@NotNull @Untainted String sourceString, @NotNull @Untainted String pattern) {
-        int sourceLen = sourceString.length(), patternLen = pattern.length();
+    public static int violentMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
+        int sourceLen = source.length(), patternLen = pattern.length();
         int i = 0, j = 0;
         while (i < sourceLen && j < patternLen) {
-            if (pattern.charAt(j) == sourceString.charAt(i)) {
+            if (pattern.charAt(j) == source.charAt(i)) {
                 j++;
                 i++;
             } else {
@@ -46,12 +48,12 @@ public class StringExecutor {
         return next;
     }
 
-    public static int knuthMorrisPrattMatch(@NotNull @Untainted String sourceString, @NotNull @Untainted String pattern) {
-        int sourceLen = sourceString.length(), patternLen = pattern.length();
+    public static int knuthMorrisPrattMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
+        int sourceLen = source.length(), patternLen = pattern.length();
         int[] next = getNext(pattern);
         int i = 0, j = 0;
         while (i < sourceLen && j < patternLen) {
-            if (j == -1 || pattern.charAt(j) == sourceString.charAt(i)) {
+            if (j == -1 || pattern.charAt(j) == source.charAt(i)) {
                 j++;
                 i++;
             } else {
@@ -92,7 +94,18 @@ public class StringExecutor {
         return -1;
     }
 
-    public String longestPalindrome(String string) {
+    @NotNull
+    public String longestPalindrome(@Untainted @NotNull String source) {
+        return manacher(source);
+    }
+
+    @NotNull
+    private String centerExpand(@Untainted @NotNull String source) {
+        return "";
+    }
+
+    @NotNull
+    private String manacher(@Untainted @NotNull String source) {
         return "";
     }
 
