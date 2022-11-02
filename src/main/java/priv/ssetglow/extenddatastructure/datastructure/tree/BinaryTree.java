@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author: SsetGlow
- * @since: 0.1
- * @date: 2022-01-06 14:30
+ * @author SsetGlow
+ * @date 2022-01-06 14:30
+ * @since 0.1
  **/
 public class BinaryTree<T extends Comparable<T>> {
 

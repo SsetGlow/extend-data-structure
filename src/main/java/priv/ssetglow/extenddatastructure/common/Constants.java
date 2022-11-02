@@ -3,9 +3,9 @@ package priv.ssetglow.extenddatastructure.common;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author: SsetGlow
- * @since: 0.1
- * @date: 2021-11-23 09:48
+ * @author SsetGlow
+ * @date 2021-11-23 09:48
+ * @since 0.1
  **/
 public enum Constants {
     //values

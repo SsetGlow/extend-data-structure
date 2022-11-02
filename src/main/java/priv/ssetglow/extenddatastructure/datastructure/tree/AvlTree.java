@@ -6,9 +6,9 @@ import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author: SsetGlow
- * @since: 0.1
- * @date: 2022-01-06 14:22
+ * @author SsetGlow
+ * @date 2022-01-06 14:22
+ * @since 0.1
  **/
 public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
 

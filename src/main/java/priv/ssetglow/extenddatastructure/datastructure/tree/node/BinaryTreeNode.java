@@ -4,9 +4,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * @author: SsetGlow
- * @since: 1.0.0
- * @date: 2022-03-18 周五 14:52
+ * @author SsetGlow
+ * @date 2022-03-18 周五 14:52
+ * @since 1.0.0
  **/
 public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<BinaryTreeNode<T>> {
 

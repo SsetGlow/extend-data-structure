@@ -9,8 +9,8 @@ import java.math.BigInteger;
 
 /**
  * @author SsetGlow
- * @since 0.1
  * @date 2021-11-22 18:12
+ * @since 0.1
  **/
 public class BitMask {
 

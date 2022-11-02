@@ -3,9 +3,9 @@ package priv.ssetglow.extenddatastructure.datastructure.graph;
 import java.util.LinkedList;
 
 /**
- * @author: SsetGlow
- * @since: 0.1
- * @date: 2022-01-13 10:16
+ * @author SsetGlow
+ * @date 2022-01-13 10:16
+ * @since 0.1
  **/
 public class Graph<T> {
     private Integer size;

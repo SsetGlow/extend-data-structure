@@ -9,9 +9,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author: SsetGlow
- * @since: 0.1
- * @date: 2022-01-06 14:21
+ * @author SsetGlow
+ * @date 2022-01-06 14:21
+ * @since 0.1
  **/
 public class Tree<T extends Comparable<T>> implements Serializable {
 
