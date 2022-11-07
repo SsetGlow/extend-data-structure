@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
- * @author: SsetGlow
- * @since: 0.1
- * @date: 2021-12-12 14:54
+ * @author SsetGlow
+ * @date 2021-12-12 14:54
+ * @since 0.1
  **/
 public class QuickPow {
 
@@ -37,7 +37,7 @@ public class QuickPow {
     public static BigDecimal quickPow(BigDecimal num, BigDecimal power) {
         return BigDecimal.valueOf(Math.pow(num.doubleValue(), power.doubleValue()));
     }
-    
+
     public static double quickPow(double num, double power) {
         return Math.pow(num, power);
     }
