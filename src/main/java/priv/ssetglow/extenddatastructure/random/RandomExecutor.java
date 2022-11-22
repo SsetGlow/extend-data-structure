@@ -13,9 +13,9 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @author: SsetGlow
- * @since: 0.1
- * @date: 2021-11-15 09:21
+ * @author SsetGlow
+ * @date 2021-11-15 09:21
+ * @since 0.1
  **/
 public class RandomExecutor {
 

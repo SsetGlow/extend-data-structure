@@ -10,6 +10,7 @@ import java.math.BigDecimal;
  * @date: 2021-11-16 20:02
  **/
 public class RandomNode implements Comparable<RandomNode> {
+
     private @NotNull BigDecimal begin;
     private @NotNull BigDecimal end;
     private int index;

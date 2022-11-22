@@ -10,6 +10,7 @@ import java.math.BigDecimal;
  * @since 0.1
  **/
 public class RandomBean {
+
     private @NotNull BigDecimal probability;
 
     public RandomBean() {
