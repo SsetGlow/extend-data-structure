@@ -5,9 +5,9 @@ import org.jetbrains.annotations.NotNull;
 import java.math.BigDecimal;
 
 /**
- * @author: SsetGlow
- * @since: 0.1
- * @date: 2021-11-16 20:02
+ * @author SsetGlow
+ * @date 2021-11-16 20:02
+ * @since 0.1
  **/
 public class RandomNode implements Comparable<RandomNode> {
 
