@@ -6,9 +6,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 
 /**
- * @author: SsetGlow
- * @since: 1.0.0
- * @date: 2022-03-31 周四 17:17
+ * @author SsetGlow
+ * @date 2022-03-31 周四 17:17
+ * @since 1.0.0
+ * <p>
  * an executor for all string related algorithms,
  * contains all violent functions and some highly promoted algorithms
  **/
