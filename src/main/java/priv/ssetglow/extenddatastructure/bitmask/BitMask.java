@@ -2,6 +2,7 @@ package priv.ssetglow.extenddatastructure.bitmask;
 
 import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import priv.ssetglow.extenddatastructure.common.Constants;
 import priv.ssetglow.extenddatastructure.math.QuickPow;
 
@@ -51,19 +52,27 @@ public class BitMask {
         return n;
     }
 
+    @Nullable
     public static Integer getFirstDuplicateWordIndex(String s1, String s2) {
         return null;
     }
 
+    @Nullable
     public static Integer[] listDuplicateWordsIndexes(String s1, String s2) {
         return null;
     }
 
+    @Nullable
     public static Character getDuplicateWord(String s1, String s2) {
         return null;
     }
 
-    public static Character[] listDuplicateWords(String s1, String s2) {
-        return null;
+    @Nullable
+    public static Character[] listDuplicateWords(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
+        boolean hasDuplicateWord = hasDuplicateWord(new String[]{s1, s2});
+        if (!hasDuplicateWord) {
+            return null;
+        }
+        return new Character[0];
     }
 }
