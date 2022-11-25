@@ -14,18 +14,13 @@ import java.math.BigInteger;
  **/
 public class BitMask {
 
-    public static boolean hasDuplicateWord(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
-        int[] masks = new int[2];
-        for (int i = 0; i < s1.length(); ++i) {
-            masks[0] |= 1 << (s1.charAt(i) - 'a');
+    public static boolean hasDuplicateWord(@NotNull @Untainted String... words) {
+        if (words.length < 2) {
+            return false;
         }
-        for (int i = 0; i < s2.length(); ++i) {
-            masks[1] |= 1 << (s2.charAt(i) - 'a');
+        if (words.length == 2) {
+            return hasDuplicateWord(words[0], words[1]);
         }
-        return (masks[0] & masks[1]) != 0;
-    }
-
-    public static boolean hasDuplicateWord(@NotNull @Untainted String[] words) {
         int[] masks = new int[words.length];
         for (int i = 0; i < words.length; ++i) {
             for (int j = 0; j < words[i].length(); ++j) {
@@ -40,6 +35,21 @@ public class BitMask {
         return false;
     }
 
+    public static boolean notHaveDuplicateWords(@Untainted @NotNull String... ss) {
+        return !hasDuplicateWord(ss);
+    }
+
+    private static boolean hasDuplicateWord(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
+        int[] masks = new int[2];
+        for (int i = 0; i < s1.length(); ++i) {
+            masks[0] |= 1 << (s1.charAt(i) - 'a');
+        }
+        for (int i = 0; i < s2.length(); ++i) {
+            masks[1] |= 1 << (s2.charAt(i) - 'a');
+        }
+        return (masks[0] & masks[1]) != 0;
+    }
+
     public static int poisonWater(int glassCount) {
         if (glassCount == 0) {
             return 0;
@@ -52,28 +62,28 @@ public class BitMask {
     }
 
     public static int getFirstDuplicateWordIndex(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
-        if (!hasDuplicateWord(new String[]{s1, s2})) {
+        if (notHaveDuplicateWords(s1, s2)) {
             return -1;
         }
         return -1;
     }
 
     public static int[] listDuplicateWordsIndexes(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
-        if (!hasDuplicateWord(new String[]{s1, s2})) {
+        if (notHaveDuplicateWords(s1, s2)) {
             return new int[0];
         }
         return new int[0];
     }
 
     public static char getDuplicateWord(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
-        if (hasDuplicateWord(new String[]{s1, s2})) {
+        if (notHaveDuplicateWords(s1, s2)) {
             return '\u0000';
         }
         return '\u0000';
     }
 
     public static char[] listDuplicateWords(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
-        if (!hasDuplicateWord(new String[]{s1, s2})) {
+        if (notHaveDuplicateWords(s1, s2)) {
             return null;
         }
         return new char[0];
