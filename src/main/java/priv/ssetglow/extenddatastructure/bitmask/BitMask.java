@@ -79,6 +79,16 @@ public class BitMask {
         if (notHaveDuplicateWords(s1, s2)) {
             return '\u0000';
         }
+        int len = s1.length(), len2 = s2.length();
+        for (int i = 0; i < len; i++) {
+            char c = s1.charAt(i);
+            for (int j = 0; j < len; j++) {
+                char c2 = s2.charAt(j);
+                if (c == c2) {
+                    return c2;
+                }
+            }
+        }
         return '\u0000';
     }
 
