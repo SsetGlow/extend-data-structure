@@ -2,7 +2,6 @@ package priv.ssetglow.extenddatastructure.bitmask;
 
 import org.checkerframework.checker.tainting.qual.Untainted;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import priv.ssetglow.extenddatastructure.common.Constants;
 import priv.ssetglow.extenddatastructure.math.QuickPow;
 
@@ -52,27 +51,33 @@ public class BitMask {
         return n;
     }
 
-    @Nullable
-    public static Integer getFirstDuplicateWordIndex(String s1, String s2) {
-        return null;
+    public static int getFirstDuplicateWordIndex(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
+        if (!hasDuplicateWord(new String[]{s1, s2})) {
+            return -1;
+        }
+        return -1;
     }
 
-    @Nullable
-    public static Integer[] listDuplicateWordsIndexes(String s1, String s2) {
-        return null;
+    public static int[] listDuplicateWordsIndexes(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
+        if (!hasDuplicateWord(new String[]{s1, s2})) {
+            return new int[0];
+        }
+        return new int[0];
     }
 
-    @Nullable
-    public static Character getDuplicateWord(String s1, String s2) {
-        return null;
+    public static char getDuplicateWord(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
+        boolean hasDuplicateWords = hasDuplicateWord(new String[]{s1, s2});
+        if (!hasDuplicateWords) {
+            return '\u0000';
+        }
+        return '\u0000';
     }
 
-    @Nullable
-    public static Character[] listDuplicateWords(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
+    public static char[] listDuplicateWords(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
         boolean hasDuplicateWord = hasDuplicateWord(new String[]{s1, s2});
         if (!hasDuplicateWord) {
             return null;
         }
-        return new Character[0];
+        return new char[0];
     }
 }
