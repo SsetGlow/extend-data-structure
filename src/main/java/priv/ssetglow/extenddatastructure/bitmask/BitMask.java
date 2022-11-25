@@ -66,16 +66,14 @@ public class BitMask {
     }
 
     public static char getDuplicateWord(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
-        boolean hasDuplicateWords = hasDuplicateWord(new String[]{s1, s2});
-        if (!hasDuplicateWords) {
+        if (hasDuplicateWord(new String[]{s1, s2})) {
             return '\u0000';
         }
         return '\u0000';
     }
 
     public static char[] listDuplicateWords(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
-        boolean hasDuplicateWord = hasDuplicateWord(new String[]{s1, s2});
-        if (!hasDuplicateWord) {
+        if (!hasDuplicateWord(new String[]{s1, s2})) {
             return null;
         }
         return new char[0];
