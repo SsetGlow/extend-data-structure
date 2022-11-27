@@ -11,6 +11,9 @@ import java.math.BigInteger;
  * @author SsetGlow
  * @date 2021-11-22 18:12
  * @since 0.1
+ *
+ * <p>
+ * for basic bit related problems
  **/
 public class BitMask {
 
