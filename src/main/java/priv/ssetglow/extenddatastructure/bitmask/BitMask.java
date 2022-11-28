@@ -84,10 +84,10 @@ public class BitMask {
         }
         int len = s1.length(), len2 = s2.length();
         for (int i = 0; i < len; i++) {
-            char c = s1.charAt(i);
+            char c1 = s1.charAt(i);
             for (int j = 0; j < len2; j++) {
                 char c2 = s2.charAt(j);
-                if (c == c2) {
+                if (c1 == c2) {
                     return c2;
                 }
             }
