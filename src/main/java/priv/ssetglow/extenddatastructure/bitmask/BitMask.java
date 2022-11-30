@@ -1,6 +1,7 @@
 package priv.ssetglow.extenddatastructure.bitmask;
 
 import org.checkerframework.checker.tainting.qual.Untainted;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import priv.ssetglow.extenddatastructure.common.Constants;
 import priv.ssetglow.extenddatastructure.math.QuickPow;
@@ -17,6 +18,7 @@ import java.math.BigInteger;
  **/
 public class BitMask {
 
+    @Contract("_->_")
     public static boolean hasDuplicateWord(@NotNull @Untainted String... words) {
         if (words.length < 2) {
             return false;
@@ -38,10 +40,12 @@ public class BitMask {
         return false;
     }
 
+    @Contract("_->_")
     public static boolean notHaveDuplicateWords(@Untainted @NotNull String... ss) {
         return !hasDuplicateWord(ss);
     }
 
+    @Contract("_,_->_")
     private static boolean hasDuplicateWord(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
         int[] masks = new int[2];
         for (int i = 0; i < s1.length(); ++i) {
@@ -53,6 +57,7 @@ public class BitMask {
         return (masks[0] & masks[1]) != 0;
     }
 
+    @Contract("_->_")
     public static int poisonWater(int glassCount) {
         if (glassCount == 0) {
             return 0;
@@ -64,6 +69,7 @@ public class BitMask {
         return n;
     }
 
+    @Contract("_,_->_")
     public static int getFirstDuplicateWordIndex(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
         if (notHaveDuplicateWords(s1, s2)) {
             return -1;
@@ -71,6 +77,7 @@ public class BitMask {
         return -1;
     }
 
+    @Contract("_,_->_")
     public static int[] listDuplicateWordsIndexes(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
         if (notHaveDuplicateWords(s1, s2)) {
             return new int[0];
@@ -78,6 +85,7 @@ public class BitMask {
         return new int[0];
     }
 
+    @Contract("_,_->_")
     public static char getDuplicateWord(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
         if (notHaveDuplicateWords(s1, s2)) {
             return '\u0000';
@@ -95,6 +103,7 @@ public class BitMask {
         return '\u0000';
     }
 
+    @Contract("_,_->_")
     public static char[] listDuplicateWords(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
         if (notHaveDuplicateWords(s1, s2)) {
             return null;
