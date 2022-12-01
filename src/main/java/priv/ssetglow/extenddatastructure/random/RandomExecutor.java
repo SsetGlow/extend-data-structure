@@ -25,7 +25,7 @@ public class RandomExecutor {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
         }
-        BigDecimal probability = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.getNumberValue().intValue(), RoundingMode.HALF_DOWN);
+        BigDecimal probability = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.numberValue.intValue(), RoundingMode.HALF_DOWN);
         AtomicReference<T> targetBeanReference = new AtomicReference<>();
         AtomicReference<BigDecimal> currentProbability = new AtomicReference<>(BigDecimal.ZERO);
         randomBeanList.forEach(randomBean -> {
@@ -50,7 +50,7 @@ public class RandomExecutor {
         for (int index = 0; index < randomBeanList.size(); ++index) {
             randomMap.put(index, index == 0 ? new RandomNode(BigDecimal.ZERO, randomBeanList.get(index).getProbability()) : new RandomNode(randomMap.get(index - 1).getEnd(), randomMap.get(index - 1).getEnd().add(randomBeanList.get(index).getProbability())));
         }
-        BigDecimal target = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.getNumberValue().intValue(), RoundingMode.HALF_DOWN);
+        BigDecimal target = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.numberValue.intValue(), RoundingMode.HALF_DOWN);
         int targetIndex = 0;
         for (int index = 0; index < randomMap.size(); ++index) {
             RandomNode node = randomMap.get(index);

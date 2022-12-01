@@ -29,7 +29,7 @@ public class BitMask {
         int[] masks = new int[words.length];
         for (int i = 0; i < words.length; ++i) {
             for (int j = 0; j < words[i].length(); ++j) {
-                masks[i] |= 1 << (words[i].charAt(j) - 'a');
+                masks[i] |= 1 << (words[i].charAt(j) - Constants.SMALL_A.charValue);
             }
         }
         for (int i = 1; i < masks.length; ++i) {
@@ -63,7 +63,7 @@ public class BitMask {
             return 0;
         }
         int n = 1;
-        while (QuickPow.quickPow(Constants.TWO.getNumberValue(), n).compareTo(BigInteger.valueOf(glassCount)) < 0) {
+        while (QuickPow.quickPow(Constants.TWO.numberValue, n).compareTo(BigInteger.valueOf(glassCount)) < 0) {
             ++n;
         }
         return n;

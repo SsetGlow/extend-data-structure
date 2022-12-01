@@ -18,13 +18,19 @@ public enum Constants {
     BIG_A(7, "A", 'A', 97L, 97D),
     HASH_TAG(8, "#", '#', 35L, 35D),
     DOLLAR_TAG(9, "$", '$', 36L, 36D),
-    POWER_TAG(10, "^", '^', 94L, 94D);
+    POWER_TAG(10, "^", '^', 94L, 94D),
+    ;
 
-    private @NotNull Integer id;
-    private @NotNull String value;
-    private @NotNull Character charValue;
-    private @NotNull Long numberValue;
-    private @NotNull Double doubleValue;
+    public @NotNull
+    final Integer id;
+    public @NotNull
+    final String value;
+    public @NotNull
+    final Character charValue;
+    public @NotNull
+    final Long numberValue;
+    public @NotNull
+    final Double doubleValue;
 
     Constants(@NotNull Integer id, @NotNull String value, @NotNull Character charValue, @NotNull Long numberValue, @NotNull Double doubleValue) {
         this.id = id;
@@ -34,43 +40,4 @@ public enum Constants {
         this.doubleValue = doubleValue;
     }
 
-    public @NotNull Integer getId() {
-        return id;
-    }
-
-    public void setId(@NotNull Integer id) {
-        this.id = id;
-    }
-
-    public @NotNull String getValue() {
-        return value;
-    }
-
-    public void setValue(@NotNull String value) {
-        this.value = value;
-    }
-
-    public @NotNull Character getCharValue() {
-        return charValue;
-    }
-
-    public void setCharValue(@NotNull Character charValue) {
-        this.charValue = charValue;
-    }
-
-    public @NotNull Long getNumberValue() {
-        return numberValue;
-    }
-
-    public void setNumberValue(@NotNull Long numberValue) {
-        this.numberValue = numberValue;
-    }
-
-    public @NotNull Double getDoubleValue() {
-        return doubleValue;
-    }
-
-    public void setDoubleValue(@NotNull Double doubleValue) {
-        this.doubleValue = doubleValue;
-    }
 }
