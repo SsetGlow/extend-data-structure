@@ -1,5 +1,6 @@
 package priv.ssetglow.extenddatastructure.random;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import priv.ssetglow.extenddatastructure.common.Constants;
 import priv.ssetglow.extenddatastructure.datastructure.tree.BinaryTree;
@@ -25,6 +26,7 @@ public class RandomExecutor {
 
     private static final BinaryTree<RandomNode> TREE = new BinaryTree<>();
 
+    @Contract("_->_")
     public static <T extends RandomBean> Optional<T> listRandom(@NotNull List<T> randomBeanList) throws RuntimeException {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
@@ -45,6 +47,7 @@ public class RandomExecutor {
         return targetBeanReference.get() != null ? Optional.of(targetBeanReference.get()) : Optional.of(randomBeanList.get(0));
     }
 
+    @Contract("_->_")
     public static <T extends RandomBean> Optional<T> mapRandom(@NotNull List<T> randomBeanList) throws RuntimeException {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
@@ -66,6 +69,7 @@ public class RandomExecutor {
         return Optional.of(randomBeanList.get(targetIndex));
     }
 
+    @Contract("_->_")
     public static <T extends RandomBean> Optional<T> treeRandom(@NotNull List<T> randomBeanList) throws RuntimeException {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
@@ -82,6 +86,7 @@ public class RandomExecutor {
         return doTreeRandom(randomBeanList);
     }
 
+    @Contract("_->_")
     private static <T extends RandomBean> Optional<T> doTreeRandom(@NotNull List<T> randomBeanList) {
         BigDecimal probability = BigDecimal.valueOf(new Random().nextDouble());
         BinaryTreeNode<RandomNode> treeNode = TREE.find(new RandomNode(probability, probability));
@@ -91,6 +96,7 @@ public class RandomExecutor {
         return Optional.of(randomBeanList.get(treeNode.getElement().getIndex()));
     }
 
+    @Contract("_->_")
     private static <T extends RandomBean> void treeify(@NotNull List<T> randomBeanList) {
         RandomNode[] nodes = new RandomNode[randomBeanList.size()];
         RandomBean firstBean = randomBeanList.get(0);
