@@ -16,6 +16,10 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author SsetGlow
  * @date 2021-11-15 09:21
  * @since 0.1
+ * <p>
+ * random executor
+ * for all random beans extend {@link RandomBean}
+ * if all probabilities' sum < 1, may return the first element of the randomBeanLists
  **/
 public class RandomExecutor {
 
