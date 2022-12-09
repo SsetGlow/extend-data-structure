@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicReference;
  **/
 public class RandomExecutor {
 
-    private static final BinaryTree<RandomNode> TREE = new BinaryTree<>();
+    private static BinaryTree<RandomNode> TREE = null;
 
     @Contract("_->_")
     public static <T extends RandomBean> Optional<T> listRandom(@NotNull List<T> randomBeanList) throws RuntimeException {
@@ -75,7 +75,7 @@ public class RandomExecutor {
             return Optional.empty();
         }
         //tree just init
-        if (TREE.size == 0) {
+        if (null == TREE || TREE.size == 0) {
             treeify(randomBeanList);
             return doTreeRandom(randomBeanList);
         }
@@ -106,9 +106,9 @@ public class RandomExecutor {
             RandomNode last = nodes[i - 1];
             nodes[i] = new RandomNode(i, last.getBegin().add(current.getProbability()), last.getEnd().add(current.getProbability()));
         }
-        BinaryTree<RandomNode> tree = new BinaryTree<>();
+        TREE = new BinaryTree<>();
         for (RandomNode node : nodes) {
-            tree.insert(new BinaryTreeNode<>(node));
+            TREE.insert(new BinaryTreeNode<>(node));
         }
     }
 
