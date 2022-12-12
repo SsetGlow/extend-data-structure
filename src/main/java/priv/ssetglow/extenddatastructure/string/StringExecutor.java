@@ -109,8 +109,8 @@ public class StringExecutor {
     @NotNull
     @Contract("_->new")
     private String manacher(@Untainted @NotNull String source) {
-        String T = preProcess(source);
-        int n = T.length();
+        String temp = preProcess(source);
+        int n = temp.length();
         int[] P = new int[n];
         int C = 0, R = 0;
         for (int i = 1; i < n - 1; i++) {
@@ -121,7 +121,7 @@ public class StringExecutor {
                 P[i] = 0;// 等于 R 的情况
             }
             // 碰到之前讲的三种情况时候，需要利用中心扩展法
-            while (T.charAt(i + 1 + P[i]) == T.charAt(i - 1 - P[i])) {
+            while (temp.charAt(i + 1 + P[i]) == temp.charAt(i - 1 - P[i])) {
                 P[i]++;
             }
             // 判断是否需要更新 R
