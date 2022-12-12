@@ -99,4 +99,5 @@ public class BitMask {
         }
         return chars;
     }
+
 }
