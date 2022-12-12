@@ -68,32 +68,7 @@ public class BitMask {
         }
         return n;
     }
-
-    @Contract("_,_->_")
-    public static int[] getFirstDuplicateWordIndex(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
-        if (notHaveDuplicateWords(s1, s2)) {
-            return new int[]{-1, -1};
-        }
-        for (int i = 0; i < s1.length(); ++i) {
-            char c1 = s1.charAt(i);
-            for (int j = 0; j < s2.length(); ++j) {
-                char c2 = s2.charAt(j);
-                if (c1 == c2) {
-                    return new int[]{i, j};
-                }
-            }
-        }
-        return new int[]{-1, -1};
-    }
-
-    @Contract("_,_->_")
-    public static int[] listDuplicateWordsIndexes(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
-        if (notHaveDuplicateWords(s1, s2)) {
-            return new int[0];
-        }
-        return new int[0];
-    }
-
+    
     @Contract("_,_->_")
     public static char getDuplicateWord(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
         if (notHaveDuplicateWords(s1, s2)) {
