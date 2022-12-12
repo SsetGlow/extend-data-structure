@@ -49,10 +49,10 @@ public class BitMask {
     private static boolean hasDuplicateWord(@NotNull @Untainted String s1, @NotNull @Untainted String s2) {
         int[] masks = new int[2];
         for (int i = 0; i < s1.length(); ++i) {
-            masks[0] |= 1 << (s1.charAt(i) - 'a');
+            masks[0] |= 1 << (s1.charAt(i) - Constants.SMALL_A.charValue);
         }
         for (int i = 0; i < s2.length(); ++i) {
-            masks[1] |= 1 << (s2.charAt(i) - 'a');
+            masks[1] |= 1 << (s2.charAt(i) - Constants.SMALL_A.charValue);
         }
         return (masks[0] & masks[1]) != 0;
     }
@@ -68,7 +68,7 @@ public class BitMask {
         }
         return n;
     }
-    
+
     @Contract("_,_->_")
     public static char getDuplicateWord(@Untainted @NotNull String s1, @Untainted @NotNull String s2) {
         if (notHaveDuplicateWords(s1, s2)) {
