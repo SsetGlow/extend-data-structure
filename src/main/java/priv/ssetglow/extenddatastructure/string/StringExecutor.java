@@ -144,7 +144,9 @@ public class StringExecutor {
         return source.substring(start, start + maxLen);
     }
 
-    private String preProcess(String s) {
+    @NotNull
+    @Contract("_->new")
+    private String preProcess(@Untainted @NotNull String s) {
         int n = s.length();
         if (n == 0) {
             return "^$";
