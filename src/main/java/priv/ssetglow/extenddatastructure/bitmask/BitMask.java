@@ -92,6 +92,11 @@ public class BitMask {
         if (notHaveDuplicateWords(s1, s2)) {
             return null;
         }
-        return new char[0];
+        char[] chars = new char[s1.length()];
+        for (int i = 0, j = 0; i < s1.length(); ++i) {
+            char c = s1.charAt(i);
+            if (Constants.NEGATIVE_ONE.numberValue != s2.indexOf(c)) chars[j++] = c;
+        }
+        return chars;
     }
 }
