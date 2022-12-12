@@ -114,9 +114,9 @@ public class StringExecutor {
         int[] P = new int[n];
         int C = 0, R = 0;
         for (int i = 1; i < n - 1; i++) {
-            int i_mirror = 2 * C - i;
+            int iMirror = 2 * C - i;
             if (R > i) {
-                P[i] = Math.min(R - i, P[i_mirror]);// 防止超出 R
+                P[i] = Math.min(R - i, P[iMirror]);// 防止超出 R
             } else {
                 P[i] = 0;// 等于 R 的情况
             }
