@@ -129,7 +129,6 @@ public class StringExecutor {
                 C = i;
                 R = i + P[i];
             }
-
         }
         // 找出 P 的最大值
         int maxLen = 0;
