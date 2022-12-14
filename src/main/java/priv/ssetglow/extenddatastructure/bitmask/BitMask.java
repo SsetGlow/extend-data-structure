@@ -74,9 +74,9 @@ public class BitMask {
         }
         int len = s1.length();
         for (int i = 0; i < len; i++) {
-            char c1 = s1.charAt(i);
-            if (s2.indexOf(c1) != -1) {
-                return c1;
+            char c = s1.charAt(i);
+            if (s2.indexOf(c) != -1) {
+                return c;
             }
         }
         return '\u0000';
