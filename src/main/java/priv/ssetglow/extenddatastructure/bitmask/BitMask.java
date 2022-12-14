@@ -63,9 +63,7 @@ public class BitMask {
             return 0;
         }
         int n = 1;
-        while (QuickPow.quickPow(Constants.TWO.numberValue, n).compareTo(BigInteger.valueOf(glassCount)) < 0) {
-            ++n;
-        }
+        while (QuickPow.quickPow(Constants.TWO.numberValue, n).compareTo(BigInteger.valueOf(glassCount)) < 0) ++n;
         return n;
     }
 
@@ -74,12 +72,11 @@ public class BitMask {
         if (notHaveDuplicateWords(s1, s2)) {
             return '\u0000';
         }
-        int len = s1.length(), len2 = s2.length();
+        int len = s1.length();
         for (int i = 0; i < len; i++) {
             char c1 = s1.charAt(i);
-            for (int j = 0; j < len2; j++) {
-                char c2 = s2.charAt(j);
-                if (c1 == c2) return c2;
+            if (s2.indexOf(c1) != -1) {
+                return c1;
             }
         }
         return '\u0000';
