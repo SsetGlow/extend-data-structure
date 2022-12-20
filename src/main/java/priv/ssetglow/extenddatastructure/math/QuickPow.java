@@ -38,7 +38,7 @@ public class QuickPow {
     }
 
     @NotNull
-    public static BigDecimal quickPow(BigDecimal num, BigDecimal power) {
+    public static BigDecimal quickPow(@NotNull BigDecimal num, @NotNull BigDecimal power) {
         return BigDecimal.valueOf(Math.pow(num.doubleValue(), power.doubleValue()));
     }
 
