@@ -46,6 +46,10 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         }
     }
 
+    private boolean shouldBalance(@NotNull BinaryTreeNode<T> node) {
+        return balanceFactor(node) > 1;
+    }
+
     private int balanceFactor(@Nullable BinaryTreeNode<T> node) {
         if (node == null) {
             return 0;
