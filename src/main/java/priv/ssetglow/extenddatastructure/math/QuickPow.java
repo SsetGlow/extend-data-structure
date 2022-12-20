@@ -1,5 +1,7 @@
 package priv.ssetglow.extenddatastructure.math;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
@@ -10,6 +12,7 @@ import java.math.BigInteger;
  **/
 public class QuickPow {
 
+    @NotNull
     public static BigInteger quickPow(long num, long power) {
         long ans = 1, base = num;
         while (power != 0) {
@@ -34,6 +37,7 @@ public class QuickPow {
         return ans;
     }
 
+    @NotNull
     public static BigDecimal quickPow(BigDecimal num, BigDecimal power) {
         return BigDecimal.valueOf(Math.pow(num.doubleValue(), power.doubleValue()));
     }
