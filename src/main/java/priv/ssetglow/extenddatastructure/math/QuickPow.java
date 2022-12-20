@@ -25,10 +25,10 @@ public class QuickPow {
     public static int quickPow(int num, int power) {
         int ans = 1, base = num;
         while (power != 0) {
-            if (((power & 1)) != 0) {
-                ans = ans * base;
+            if ((power & 1) != 0) {
+                ans *= base;
             }
-            base = base * base;
+            base *= base;
             power >>= 1;
         }
         return ans;
