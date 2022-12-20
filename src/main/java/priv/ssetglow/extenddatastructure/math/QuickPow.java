@@ -13,10 +13,10 @@ public class QuickPow {
     public static BigInteger quickPow(long num, long power) {
         long ans = 1, base = num;
         while (power != 0) {
-            if (((power & 1)) != 0) {
-                ans = ans * base;
+            if ((power & 1) != 0) {
+                ans *= base;
             }
-            base = base * base;
+            base *= base;
             power >>= 1;
         }
         return BigInteger.valueOf(ans);
