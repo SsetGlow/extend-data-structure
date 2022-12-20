@@ -1,6 +1,7 @@
 package priv.ssetglow.extenddatastructure.datastructure.tree;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
 
 import java.util.concurrent.locks.ReentrantLock;
@@ -36,6 +37,34 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
 
     @Override
     public void insert(@NotNull BinaryTreeNode<T> node) {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    private int balanceFactor(@Nullable BinaryTreeNode<T> node) {
+        if (node == null) {
+            return 0;
+        }
+        return nodeHeight(node.getLeftChild()) - nodeHeight(node.getRightChild());
+    }
+
+    private int nodeHeight(@Nullable BinaryTreeNode<T> node) {
+        if (node == null) {
+            return 0;
+        }
+        return Math.max(nodeHeight(node.getLeftChild()), nodeHeight(node.getRightChild())) + 1;
+    }
+
+    private void leftRotate() {
+
+    }
+
+    private void rightRotate() {
 
     }
 
