@@ -23,7 +23,7 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         size++;
     }
 
-    public boolean insert(T element) {
+    public boolean insert(@NotNull T element) {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
