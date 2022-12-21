@@ -27,7 +27,7 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            BinaryTreeNode<T> node = new BinaryTreeNode<T>(element);
+            insert(new BinaryTreeNode<T>(element));
             size++;
         } finally {
             lock.unlock();
@@ -40,7 +40,17 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-
+            if (root == null) {
+                root = node;
+                return;
+            }
+            if (root.getLeftChild() == null) {
+                root.setLeftChild(node);
+            } else if (root.getRightChild() == null) {
+                root.setRightChild(node);
+            } else {
+                insert(node);
+            }
         } finally {
             lock.unlock();
         }
@@ -62,6 +72,10 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
             return 0;
         }
         return Math.max(nodeHeight(node.getLeftChild()), nodeHeight(node.getRightChild())) + 1;
+    }
+
+    private void balance() {
+
     }
 
     private void leftRotate() {
