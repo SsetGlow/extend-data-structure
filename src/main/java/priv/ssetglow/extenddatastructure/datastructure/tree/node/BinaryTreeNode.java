@@ -58,7 +58,7 @@ public class BinaryTreeNode<T extends Comparable<T>> implements Comparable<Binar
     }
 
     public boolean onlyHasRightChild() {
-        return null != leftChild && null == rightChild;
+        return null == leftChild && null != rightChild;
     }
 
     public boolean onlyHasLeftChild() {
