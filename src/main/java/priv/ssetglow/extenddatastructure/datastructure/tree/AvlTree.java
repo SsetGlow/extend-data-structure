@@ -77,12 +77,20 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
 
     }
 
-    private void leftRotate() {
-
+    private void leftRotate(@NotNull BinaryTreeNode<T> node) {
+        BinaryTreeNode<T> left = node.getLeftChild();
+        BinaryTreeNode<T> right = node.getRightChild();
+        assert right != null;
+        right.setLeftChild(node);
+        node.setRightChild(left);
     }
 
-    private void rightRotate() {
-
+    private void rightRotate(@NotNull BinaryTreeNode<T> node) {
+        BinaryTreeNode<T> left = node.getLeftChild();
+        BinaryTreeNode<T> right = node.getRightChild();
+        assert left != null;
+        left.setRightChild(node);
+        node.setLeftChild(right);
     }
 
 }
