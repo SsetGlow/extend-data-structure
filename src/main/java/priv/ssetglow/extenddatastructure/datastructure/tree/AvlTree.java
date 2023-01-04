@@ -49,6 +49,9 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
                 root.setRightChild(node);
             } else {
                 insert(node);
+                if (shouldBalance(node)) {
+                    balance(node);
+                }
             }
         } finally {
             lock.unlock();
@@ -73,8 +76,12 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         return Math.max(nodeHeight(node.getLeftChild()), nodeHeight(node.getRightChild())) + 1;
     }
 
-    private void balance() {
-
+    private void balance(BinaryTreeNode<T> node) {
+        if (nodeHeight(node.getRightChild()) - nodeHeight(node.getLeftChild()) > 1) {
+            rightRotate(node);
+        } else {
+            leftRotate(node);
+        }
     }
 
     private void leftRotate(@NotNull BinaryTreeNode<T> node) {
