@@ -1,5 +1,6 @@
 package priv.ssetglow.extenddatastructure.datastructure.tree;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
@@ -23,6 +24,7 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         size++;
     }
 
+    @Contract("_->_")
     public void insert(@NotNull T element) {
         final ReentrantLock lock = this.lock;
         lock.lock();
@@ -35,6 +37,7 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
     }
 
     @Override
+    @Contract("_->_")
     protected void insert(@NotNull BinaryTreeNode<T> node) {
         final ReentrantLock lock = this.lock;
         lock.lock();
@@ -58,10 +61,12 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         }
     }
 
+    @Contract("_->_")
     private boolean shouldBalance(@NotNull BinaryTreeNode<T> node) {
         return balanceFactor(node) > 1;
     }
 
+    @Contract("_->_")
     private int balanceFactor(@Nullable BinaryTreeNode<T> node) {
         if (node == null) {
             return 0;
@@ -69,6 +74,7 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         return nodeHeight(node.getLeftChild()) - nodeHeight(node.getRightChild());
     }
 
+    @Contract("_->_")
     private int nodeHeight(@Nullable BinaryTreeNode<T> node) {
         if (node == null) {
             return 0;
@@ -76,6 +82,7 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         return Math.max(nodeHeight(node.getLeftChild()), nodeHeight(node.getRightChild())) + 1;
     }
 
+    @Contract("_->_")
     private void balance(BinaryTreeNode<T> node) {
         if (nodeHeight(node.getRightChild()) - nodeHeight(node.getLeftChild()) > 1) {
             rightRotate(node);
@@ -84,6 +91,7 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         }
     }
 
+    @Contract("_->_")
     private void leftRotate(@NotNull BinaryTreeNode<T> node) {
         BinaryTreeNode<T> left = node.getLeftChild();
         BinaryTreeNode<T> right = node.getRightChild();
@@ -92,12 +100,18 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         node.setRightChild(left);
     }
 
+    @Contract("_->_")
     private void rightRotate(@NotNull BinaryTreeNode<T> node) {
         BinaryTreeNode<T> left = node.getLeftChild();
         BinaryTreeNode<T> right = node.getRightChild();
         assert left != null;
         left.setRightChild(node);
         node.setLeftChild(right);
+    }
+
+    @Contract("->_")
+    public int size() {
+        return size;
     }
 
 }
