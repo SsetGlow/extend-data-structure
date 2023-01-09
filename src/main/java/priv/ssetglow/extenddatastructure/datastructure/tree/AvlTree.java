@@ -29,16 +29,15 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
-            insert(new BinaryTreeNode<T>(element));
+            insert(new BinaryTreeNode<T>(element), root);
             size++;
         } finally {
             lock.unlock();
         }
     }
 
-    @Override
-    @Contract("_->_")
-    protected void insert(@NotNull BinaryTreeNode<T> node) {
+    @Contract("_,_->_")
+    private void insert(@NotNull BinaryTreeNode<T> node, @NotNull BinaryTreeNode<T> parent) {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
@@ -46,14 +45,23 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
                 root = node;
                 return;
             }
-            if (root.getLeftChild() == null) {
-                root.setLeftChild(node);
-            } else if (root.getRightChild() == null) {
-                root.setRightChild(node);
+            if (node.compareTo(parent) < 0) {
+                if (null == parent.getLeftChild()) {
+                    parent.setLeftChild(node);
+                    if (shouldBalance(node)) {
+                        balance(node);
+                    }
+                } else {
+                    insert(node, parent.getLeftChild());
+                }
             } else {
-                insert(node);
-                if (size >= 3 && shouldBalance(node)) {
-                    balance(node);
+                if (null == parent.getRightChild()) {
+                    parent.setRightChild(node);
+                    if (shouldBalance(node)) {
+                        balance(node);
+                    }
+                } else {
+                    insert(node, parent.getRightChild());
                 }
             }
         } finally {

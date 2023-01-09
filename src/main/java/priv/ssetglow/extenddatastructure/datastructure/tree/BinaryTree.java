@@ -38,7 +38,7 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
-    protected void insert(@NotNull BinaryTreeNode<T> node) {
+    private void insert(@NotNull BinaryTreeNode<T> node) {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
