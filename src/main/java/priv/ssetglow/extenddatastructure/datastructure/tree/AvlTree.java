@@ -45,11 +45,13 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
             }
             if (root.getLeftChild() == null) {
                 root.setLeftChild(node);
+                size++;
             } else if (root.getRightChild() == null) {
                 root.setRightChild(node);
+                size++;
             } else {
                 insert(node);
-                if (shouldBalance(node)) {
+                if (size >= 3 && shouldBalance(node)) {
                     balance(node);
                 }
             }
