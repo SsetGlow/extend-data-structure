@@ -108,7 +108,7 @@ public class RandomExecutor {
         }
         TREE = new BinaryTree<>();
         for (RandomNode node : nodes) {
-            TREE.insert(new BinaryTreeNode<>(node));
+            TREE.insert(node);
         }
     }
 

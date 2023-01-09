@@ -35,7 +35,7 @@ public class AvlTree<T extends Comparable<T>> extends BinaryTree<T> {
     }
 
     @Override
-    public void insert(@NotNull BinaryTreeNode<T> node) {
+    protected void insert(@NotNull BinaryTreeNode<T> node) {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {

@@ -27,13 +27,23 @@ public class BinaryTree<T extends Comparable<T>> {
         size = 1;
     }
 
-    public void insert(@NotNull BinaryTreeNode<T> node) {
+    public void insert(@NotNull T element) {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            insert(new BinaryTreeNode<>(element));
+            size++;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    protected void insert(@NotNull BinaryTreeNode<T> node) {
         final ReentrantLock lock = this.lock;
         lock.lock();
         try {
             if (root == null) {
                 root = node;
-                size++;
             } else {
                 insert(root, node);
             }
