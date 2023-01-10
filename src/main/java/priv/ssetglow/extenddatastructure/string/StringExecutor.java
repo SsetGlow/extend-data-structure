@@ -114,7 +114,7 @@ public class StringExecutor {
         int[] P = new int[n];
         int C = 0, R = 0;
         for (int i = 1; i < n - 1; i++) {
-            int iMirror = C << 1 - i;
+            int iMirror = (C << 1) - i;
             if (R > i) {
                 P[i] = Math.min(R - i, P[iMirror]);
             } else {
