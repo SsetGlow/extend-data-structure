@@ -114,23 +114,20 @@ public class StringExecutor {
         int[] P = new int[n];
         int C = 0, R = 0;
         for (int i = 1; i < n - 1; i++) {
-            int iMirror = 2 * C - i;
+            int iMirror = C << 1 - i;
             if (R > i) {
-                P[i] = Math.min(R - i, P[iMirror]);// 防止超出 R
+                P[i] = Math.min(R - i, P[iMirror]);
             } else {
-                P[i] = 0;// 等于 R 的情况
+                P[i] = 0;
             }
-            // 碰到之前讲的三种情况时候，需要利用中心扩展法
             while (temp.charAt(i + 1 + P[i]) == temp.charAt(i - 1 - P[i])) {
                 P[i]++;
             }
-            // 判断是否需要更新 R
             if (i + P[i] > R) {
                 C = i;
                 R = i + P[i];
             }
         }
-        // 找出 P 的最大值
         int maxLen = 0;
         int centerIndex = 0;
         for (int i = 1; i < n - 1; i++) {
@@ -139,7 +136,7 @@ public class StringExecutor {
                 centerIndex = i;
             }
         }
-        int start = (centerIndex - maxLen) / 2; //最开始讲的求原字符串下标
+        int start = (centerIndex - maxLen) >> 1;
         return source.substring(start, start + maxLen);
     }
 
