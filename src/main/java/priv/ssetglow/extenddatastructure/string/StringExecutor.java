@@ -103,7 +103,21 @@ public class StringExecutor {
 
     @NotNull
     private String centerExpand(@Untainted @NotNull String source) {
-        return "";
+        int len = source.length();
+        String res = "";
+        for (int i = 0; i < 2 * len - 1; i++) {
+            int left = i / 2;
+            int right = left + i % 2;
+            while (left >= 0 && right < len && source.charAt(left) == source.charAt(right)) {
+                String tmp = source.substring(left, right + 1);
+                if (tmp.length() >= res.length()) {
+                    res = tmp;
+                }
+                left--;
+                right++;
+            }
+        }
+        return res;
     }
 
     @NotNull
