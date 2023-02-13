@@ -16,7 +16,7 @@ import java.util.Arrays;
  **/
 public class StringExecutor {
 
-    public static int violentMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
+    public static int simpleMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
         int sourceLen = source.length(), patternLen = pattern.length();
         int i = 0, j = 0;
         while (i < sourceLen && j < patternLen) {
