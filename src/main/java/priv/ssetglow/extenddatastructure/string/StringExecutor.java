@@ -34,22 +34,6 @@ public class StringExecutor {
         return -1;
     }
 
-    private static int[] getNext(@NotNull @Untainted String s) {
-        int len = s.length(), i = 0, j = -1;
-        int[] next = new int[len + 1];
-        next[0] = -1;
-        while (i < len - 1) {
-            if (j == -1 || s.charAt(i) == s.charAt(j)) {
-                ++i;
-                ++j;
-                next[i] = j;
-            } else {
-                j = next[j];
-            }
-        }
-        return next;
-    }
-
     public static int knuthMorrisPrattMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
         int sourceLen = source.length(), patternLen = pattern.length();
         int[] next = getNext(pattern);
@@ -66,15 +50,6 @@ public class StringExecutor {
             return i - j;
         }
         return -1;
-    }
-
-    private static int[] badCharRule(@NotNull @Untainted String string) {
-        int[] badChar = new int[256];
-        Arrays.fill(badChar, -1);
-        for (int i = 0; i < string.length(); i++) {
-            badChar[string.charAt(i)] = i;
-        }
-        return badChar;
     }
 
     public static int boyerMooreMatch(@NotNull @Untainted String source, @NotNull @Untainted String pattern) {
@@ -94,6 +69,31 @@ public class StringExecutor {
             i += j - badChar[source.charAt(i)];
         }
         return -1;
+    }
+
+    private static int[] getNext(@NotNull @Untainted String s) {
+        int len = s.length(), i = 0, j = -1;
+        int[] next = new int[len + 1];
+        next[0] = -1;
+        while (i < len - 1) {
+            if (j == -1 || s.charAt(i) == s.charAt(j)) {
+                ++i;
+                ++j;
+                next[i] = j;
+            } else {
+                j = next[j];
+            }
+        }
+        return next;
+    }
+
+    private static int[] badCharRule(@NotNull @Untainted String string) {
+        int[] badChar = new int[256];
+        Arrays.fill(badChar, -1);
+        for (int i = 0; i < string.length(); i++) {
+            badChar[string.charAt(i)] = i;
+        }
+        return badChar;
     }
 
     @NotNull
@@ -123,7 +123,7 @@ public class StringExecutor {
     @NotNull
     @Contract("_->new")
     private String manacher(@Untainted @NotNull String source) {
-        String temp = preProcess(source);
+        String temp = manacherPreProcess(source);
         int n = temp.length();
         int[] P = new int[n];
         int C = 0, R = 0;
@@ -156,7 +156,7 @@ public class StringExecutor {
 
     @NotNull
     @Contract("_->new")
-    private String preProcess(@Untainted @NotNull String s) {
+    private String manacherPreProcess(@Untainted @NotNull String s) {
         int n = s.length();
         if (n == 0) {
             return "^$";
