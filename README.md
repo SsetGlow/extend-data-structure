@@ -15,4 +15,7 @@
 
 -----
 
+## JDK
+- Updated to jdk 21
+
 Developed by IntelliJ IDEA
