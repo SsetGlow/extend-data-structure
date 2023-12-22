@@ -2,16 +2,17 @@ package priv.ssetglow.extenddatastructure.random;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import priv.ssetglow.extenddatastructure.common.Constants;
 import priv.ssetglow.extenddatastructure.datastructure.tree.BinaryTree;
 import priv.ssetglow.extenddatastructure.datastructure.tree.node.BinaryTreeNode;
 import priv.ssetglow.extenddatastructure.random.bean.RandomBean;
 import priv.ssetglow.extenddatastructure.random.bean.RandomNode;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
+
+import static java.math.RoundingMode.HALF_DOWN;
+import static priv.ssetglow.extenddatastructure.common.Constants.BIG_DECIMAL_SCALE;
 
 /**
  * @author SsetGlow
@@ -31,7 +32,7 @@ public class RandomExecutor {
         if (randomBeanList.isEmpty()) {
             return Optional.empty();
         }
-        BigDecimal probability = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.numberValue.intValue(), RoundingMode.HALF_DOWN);
+        BigDecimal probability = BigDecimal.valueOf(Math.random()).setScale(BIG_DECIMAL_SCALE.numberValue.intValue(), HALF_DOWN);
         AtomicReference<T> targetBeanReference = new AtomicReference<>();
         AtomicReference<BigDecimal> currentProbability = new AtomicReference<>(BigDecimal.ZERO);
         randomBeanList.forEach(randomBean -> {
@@ -57,7 +58,7 @@ public class RandomExecutor {
         for (int index = 0; index < randomBeanList.size(); ++index) {
             randomMap.put(index, index == 0 ? new RandomNode(BigDecimal.ZERO, randomBeanList.get(index).getProbability()) : new RandomNode(randomMap.get(index - 1).getEnd(), randomMap.get(index - 1).getEnd().add(randomBeanList.get(index).getProbability())));
         }
-        BigDecimal target = BigDecimal.valueOf(Math.random()).setScale(Constants.BIG_DECIMAL_SCALE.numberValue.intValue(), RoundingMode.HALF_DOWN);
+        BigDecimal target = BigDecimal.valueOf(Math.random()).setScale(BIG_DECIMAL_SCALE.numberValue.intValue(), HALF_DOWN);
         int targetIndex = 0;
         for (int index = 0; index < randomMap.size(); ++index) {
             RandomNode node = randomMap.get(index);
