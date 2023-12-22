@@ -7,6 +7,13 @@ package priv.ssetglow.extenddatastructure.math;
  **/
 public class CongruenceModulo {
 
+    /**
+     *
+     * @param a first var
+     * @param b second var
+     * @param mod mod var
+     * @return  return whether a and b is same mod
+     */
     public boolean isModule(int a, int b, int mod) {
         if (mod == 0) {
             throw new ArithmeticException("% by zero");
