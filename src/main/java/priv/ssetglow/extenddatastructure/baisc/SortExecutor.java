@@ -1,7 +1,5 @@
 package priv.ssetglow.extenddatastructure.baisc;
 
-import java.util.Collections;
-
 /**
  * @author SsetGlow
  * @date 2024-01-02 周二 09:08
@@ -9,16 +7,26 @@ import java.util.Collections;
  **/
 public class SortExecutor {
 
-    public <T extends Collections> void bubbleSort(T data) {
+    public void bubbleSort(int[] data) {
+        for (int i = 0; i < data.length - 1; ++i) {
+            for (int j = i + 1; j < data.length; ++j) {
+                if (data[i] > data[j]) change(data[i], data[j]);
+            }
+        }
+    }
+
+    public <T extends Object> void selectSort(T[] data) {
 
     }
 
-    public <T extends Collections> void selectSort(T data) {
+    public <T extends Object> void insertSort(T[] data) {
 
     }
 
-    public <T extends Collections> void insertSort(T data) {
-        
+    private void change(int i, int j) {
+        int tmp = i;
+        i = j;
+        j = tmp;
     }
 
 }
