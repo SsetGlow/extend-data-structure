@@ -15,11 +15,11 @@ public class SortExecutor {
         }
     }
 
-    public <T extends Object> void selectSort(T[] data) {
+    public void selectSort(int[] data) {
 
     }
 
-    public <T extends Object> void insertSort(T[] data) {
+    public void insertSort(int[] data) {
 
     }
 
