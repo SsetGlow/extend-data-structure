@@ -10,7 +10,7 @@ public class SortExecutor {
     public void bubbleSort(int[] data) {
         for (int i = 0; i < data.length - 1; ++i) {
             for (int j = i + 1; j < data.length; ++j) {
-                if (data[i] > data[j]) change(data[i], data[j]);
+                if (data[i] > data[j]) swap(data[i], data[j]);
             }
         }
     }
@@ -24,7 +24,7 @@ public class SortExecutor {
                 }
             }
             if (i != min) {
-                change(data[i], data[min]);
+                swap(data[i], data[min]);
             }
         }
     }
@@ -33,7 +33,7 @@ public class SortExecutor {
 
     }
 
-    private void change(int i, int j) {
+    private void swap(int i, int j) {
         int tmp = i;
         i = j;
         j = tmp;
