@@ -30,7 +30,17 @@ public class SortExecutor {
     }
 
     public void insertSort(int[] data) {
-
+        int i, j, k;
+        for (i = 1; i < data.length; i++) {
+            for (j = i - 1; j >= 0; j--)
+                if (data[j] < data[i]) break;
+            if (j != i - 1) {
+                int temp = data[i];
+                for (k = i - 1; k > j; k--)
+                    data[k + 1] = data[k];
+                data[k + 1] = temp;
+            }
+        }
     }
 
     private void swap(int i, int j) {
